@@ -1,9 +1,8 @@
 import cn from "@/utils/cn";
-import { ComponentPropsWithoutRef, ReactNode } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import Button from "./Button";
-import ExpandMoreSharpIcon from "@mui/icons-material/ExpandMoreSharp";
 import Link from "next/link";
-import EastSharpIcon from "@mui/icons-material/EastSharp";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
 type SectionProps = {
   title?: string;
@@ -67,13 +66,13 @@ function SectionFooter({
     <div className="flex w-full justify-between px-8 mt-8">
       <Button mode="ghost" asChild>
         <Link href={scrollHref || ""} className="gap-2">
-          {scrollBtn} <ExpandMoreSharpIcon />
+          {scrollBtn} <ChevronDown />
         </Link>
       </Button>
       <Button asChild>
         <Link href={actionHref || ""} className="gap-2 pr-4">
           {actionBtn}
-          <EastSharpIcon />
+          <ArrowRight />
         </Link>
       </Button>
     </div>
