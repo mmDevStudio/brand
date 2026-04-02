@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --color-border-subtle: #e8e4e3;
+  --color-primary: #ad46ff;
+  --color-text-subtle: #7c6d67;
+  --color-text: #473c39;
+  --color-border: #aba09c;
+  --color-bg: #fbfaf9;
+  --color-primary-foreground: #faf5ff;
+  --color-bg-accent: #e8e4e3;
+
+  --pattern-lines: repeating-linear-gradient(
+    -45deg,
+    transparent 0px,
+    transparent 3.1px,
+    var(--color-border-subtle) 4px,
+    var(--color-border-subtle) 5px,
+    transparent 5px
+  );
+}
+
+@media (prefers-color-scheme: dark) {
+  /* TODO */
+}
+
+@theme {
+  --background-image-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.99' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='discrete' tableValues='0 1'/%3E%3CfeFuncG type='discrete' tableValues='0 1'/%3E%3CfeFuncB type='discrete' tableValues='0 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --background-image-lines: var(--pattern-lines);
+
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-border-subtle: var(--color-border-subtle);
+  --color-text-subtle: var(--color-text-subtle);
+  --color-text: var(--color-text);
+  --color-border: var(--color-border);
+  --color-bg: var(--color-bg);
+  --color-bg-accent: var(--color-bg-accent);
+
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-geist-mono);
+}
