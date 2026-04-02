@@ -39,7 +39,7 @@ export default function RootLayout({
             aria-hidden="true"
           />
           {/* content */}
-          <div className="relative">{children}</div>
+          <div className="relative py-24 gap-24">{children}</div>
         </main>
 
         <Footer />

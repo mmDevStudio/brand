@@ -40,3 +40,35 @@
   --font-heading: var(--font-space-grotesk);
   --font-body: var(--font-geist-mono);
 }
+
+@layer utilities {
+  .text-h1 {
+    @apply text-[47.8px] font-heading font-bold leading-[1.1];
+  }
+  .text-h2 {
+    @apply text-[39.8px] font-heading font-bold leading-[1.1];
+  }
+  .text-h3 {
+    @apply text-[33.2px] font-heading font-bold leading-[1.1];
+  }
+  .text-h4 {
+    @apply text-[27.6px] font-heading font-bold leading-[1.1];
+  }
+  .text-h5 {
+    @apply text-[23px] font-heading font-bold leading-[1.1];
+  }
+
+  .text-action {
+    @apply text-[20px] font-heading font-bold leading-[1.1];
+  }
+
+  .text-large {
+    @apply text-[19.2px] font-body text-text-subtle;
+  }
+  .text-body {
+    @apply text-[16px] font-body text-text-subtle;
+  }
+  .text-small {
+    @apply text-[13.3px] font-body text-text-subtle;
+  }
+}
