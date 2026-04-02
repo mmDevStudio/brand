@@ -4,7 +4,14 @@ import Section from "@/components/Section";
 export default function Home() {
   return (
     <>
-      <Section title="01 / IDENTITY" className="text-body">
+      <Section
+        title="01 / IDENTITY"
+        className="text-body"
+        actionBtn="BUILD NOW"
+        actionHref=""
+        scrollBtn="WHAT WE OFFER"
+        scrollHref=""
+      >
         <span>
           We are a development studio building clean, fast, and modern websites.
           We help small businesses and startups establish their online presence
@@ -12,7 +19,7 @@ export default function Home() {
           performance, scalable architecture, and straightforward design.
         </span>
 
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-2 gap-8">
           <div>
             <div className="text-h5">Mika Reich</div>
             <div className="text-action">FRONTEND ENGINEER</div>

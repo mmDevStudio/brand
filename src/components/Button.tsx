@@ -12,7 +12,7 @@ export const buttonVariants = cva(
       },
       size: {
         sm: "px-4 py-2 text-base",
-        md: "px-6 py-3 text-xl",
+        md: "px-6 py-3 text-action",
       },
     },
     defaultVariants: {
