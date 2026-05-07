@@ -1,0 +1,69 @@
+import { PersonIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
+import Button from "@/components/Button";
+import Input from "@/components/Input";
+import ShowcaseItem from "./_components/ShowcaseItem";
+
+/** This page is intended to showcase custom ui components. Remove or hide route before release */
+export default function SandboxPage() {
+  return (
+    <main className="container mx-auto py-10 px-3 space-y-10">
+      <header>
+        <h1 className="text-title text-text font-heading font-bold mb-2">
+          Component Showcase
+        </h1>
+
+        <p className="text-text-subtle">
+          This page is intended to showcase custom ui components. Remove or hide
+          route before release!
+        </p>
+
+        <hr className="text-border-subtle" />
+      </header>
+
+      <section>
+        <h1 className="text-h1 font-heading font-bold text-text">Button</h1>
+
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <ShowcaseItem label='mode: "filled", size: "md"'>
+            <Button mode="filled" size="md">
+              Button
+            </Button>
+          </ShowcaseItem>
+
+          <ShowcaseItem label='mode: "filled", size: "sm"'>
+            <Button mode="filled" size="sm">
+              Button
+            </Button>
+          </ShowcaseItem>
+
+          <ShowcaseItem label='mode: "ghost", size: "md"'>
+            <Button mode="ghost" size="md">
+              Button
+            </Button>
+          </ShowcaseItem>
+
+          <ShowcaseItem label='mode: "ghost", size: "sm"'>
+            <Button mode="ghost" size="sm">
+              Button
+            </Button>
+          </ShowcaseItem>
+        </dl>
+      </section>
+
+      <section>
+        <h1 className="text-h1 font-heading font-bold text-text">Input</h1>
+
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <ShowcaseItem label="base">
+            <Input
+              prefixIcon={<PersonIcon />}
+              placeholder="Input"
+              className="w-full"
+              suffixIcon={<QuestionMarkCircledIcon />}
+            />
+          </ShowcaseItem>
+        </dl>
+      </section>
+    </main>
+  );
+}

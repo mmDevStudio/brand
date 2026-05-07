@@ -27,11 +27,15 @@ export default function Input({
 
   return (
     <label className={cn(inputContainerStyles(), className)} htmlFor={id}>
-      {prefixIcon && <span className="shrink-0">{prefixIcon}</span>}
+      {prefixIcon && (
+        <span className="shrink-0 text-text-subtle">{prefixIcon}</span>
+      )}
 
       <input id={id} className={inputStyles()} {...props} />
 
-      {suffixIcon && <span className="shrink-0">{suffixIcon}</span>}
+      {suffixIcon && (
+        <span className="shrink-0 text-text-subtle">{suffixIcon}</span>
+      )}
     </label>
   );
 }
