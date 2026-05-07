@@ -1,6 +1,11 @@
-import { PersonIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
+import {
+  EnvelopeOpenIcon,
+  PersonIcon,
+  QuestionMarkCircledIcon,
+} from "@radix-ui/react-icons";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import TextArea from "@/components/TextArea";
 import ShowcaseItem from "./_components/ShowcaseItem";
 
 /** This page is intended to showcase custom ui components. Remove or hide route before release */
@@ -59,6 +64,21 @@ export default function SandboxPage() {
               prefixIcon={<PersonIcon />}
               placeholder="Input"
               className="w-full"
+              suffixIcon={<QuestionMarkCircledIcon />}
+            />
+          </ShowcaseItem>
+        </dl>
+      </section>
+
+      <section>
+        <h1 className="text-h1 font-heading font-bold text-text">Text Area</h1>
+
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <ShowcaseItem label="base">
+            <TextArea
+              placeholder="Text Area"
+              className="w-full"
+              prefixIcon={<EnvelopeOpenIcon />}
               suffixIcon={<QuestionMarkCircledIcon />}
             />
           </ShowcaseItem>
