@@ -25,6 +25,21 @@
   --text-sm: 13.33px;
 }
 
+@layer base {
+  .dark {
+    --color-bg: var(--color-taupe-950);
+    --color-bg-accent: var(--color-taupe-900);
+    --color-text: var(--color-taupe-200);
+    --color-text-subtle: var(--color-taupe-300);
+    --color-primary: var(--color-purple-500);
+    --color-foreground: var(--color-purple-50);
+    --color-border: var(--color-taupe-500);
+    --color-border-subtle: var(--color-taupe-800);
+    --color-error: var(--color-red-500);
+    --color-outline: var(--color-blue-500);
+  }
+}
+
 @utility text-action {
   @apply font-heading text-lg uppercase font-bold leading-none;
 }
