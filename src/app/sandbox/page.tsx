@@ -6,13 +6,18 @@ import {
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import TextArea from "@/components/TextArea";
+import { ThemeModeSwitcher } from "@/components/ThemeSwitcher";
 import ShowcaseItem from "./_components/ShowcaseItem";
 
 /** This page is intended to showcase custom ui components. Remove or hide route before release */
 export default function SandboxPage() {
   return (
     <main className="container mx-auto py-10 px-3 space-y-10">
-      <header>
+      <header className="relative">
+        <ThemeModeSwitcher className="absolute top-0 right-0" size="sm">
+          Change Theme
+        </ThemeModeSwitcher>
+
         <h1 className="text-title text-text font-heading font-bold mb-2">
           Component Showcase
         </h1>
