@@ -53,7 +53,7 @@ export default function Button({
 
   return (
     <Comp className={cn(buttonStyles({ mode, size }), className)} {...props}>
-      {prefixIcon && <span className="shrink-0">prefixIcon</span>}
+      {prefixIcon && <span className="shrink-0">{prefixIcon}</span>}
 
       <Slot.Slottable>{slottedChildren}</Slot.Slottable>
 
