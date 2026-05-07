@@ -13,6 +13,7 @@
   --color-border: var(--color-taupe-400);
   --color-border-subtle: var(--color-taupe-200);
   --color-error: var(--color-red-500);
+  --color-outline: var(--color-blue-500);
 
   --text-title: 47.78px;
   --text-h1: 39.81px;
@@ -26,4 +27,8 @@
 
 @utility text-action {
   @apply font-heading text-lg uppercase font-bold leading-none;
+}
+
+@utility outlined {
+  @apply ring-2 ring-outline;
 }
