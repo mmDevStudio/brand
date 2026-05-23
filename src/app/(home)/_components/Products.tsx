@@ -86,28 +86,42 @@ function PackageCard({
       buttonMode={recommended ? "filled" : "ghost"}
       className="h-115"
     >
-      <div className="flex flex-col gap">
-        <div className="flex justify-between items-center">
-          <h4 className="text-text font-heading text-h4 font-bold">{title}</h4>
-          {recommended && (
-            <span className="uppercase font-medium text-primary">
-              Recommended
-            </span>
-          )}
+      <div className="flex flex-col h-full">
+        <div className="flex flex-col gap-1">
+          <div className="flex justify-between items-center">
+            <h4 className="text-text font-heading text-h4 font-bold">
+              {title}
+            </h4>
+            {recommended && (
+              <span className="uppercase font-medium text-primary">
+                Recommended
+              </span>
+            )}
+          </div>
+          <span className="text-text-subtle text-sm uppercase">{subtitle}</span>
         </div>
-        <span className="text-text-subtle text-sm uppercase">{subtitle}</span>
+
+        <div className="-mx-3 my-3 h-0 border-t border-dashed border-border" />
+
+        <ul>
+          {features.map((f) => (
+            <li
+              key={f}
+              className="flex gap-2 text-text leading-10 items-center"
+            >
+              <CheckCircledIcon className="text-primary shrink-0" />
+              {f}
+            </li>
+          ))}
+        </ul>
+
+        <div className="font-heading mt-auto flex gap-2 items-center">
+          <span className="text-h4 text-primary font-bold">{price}€</span>
+          <span className="uppercase text-text-subtle text-sm pt-1.5">
+            per unit
+          </span>
+        </div>
       </div>
-
-      <div className="-mx-3 my-3 h-0 border-t border-dashed border-border" />
-
-      <ul>
-        {features.map((f) => (
-          <li key={f} className="flex gap-2 text-text leading-10 items-center">
-            <CheckCircledIcon className="text-primary" />
-            {f}
-          </li>
-        ))}
-      </ul>
     </Card>
   );
 }
