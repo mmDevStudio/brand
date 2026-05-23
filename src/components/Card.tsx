@@ -17,7 +17,7 @@ export default function Card({
   return (
     <article
       className={cn(
-        "p-3 flex flex-col border border-border-subtle bg-bg gap-2",
+        "p-3 flex flex-col border border-border-subtle gap-2 bg-bg bg-stripes",
         className,
       )}
       {...props}

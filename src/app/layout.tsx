@@ -29,11 +29,18 @@ export default function RootLayout({
     <ThemeModeProvider>
       <html
         lang="en"
-        className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased font-body bg-bg`}
+        className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased font-body bg-bg bg-stripes`}
       >
-        <body className="min-h-full flex flex-col p-32">
+        <body className="relative min-h-full flex flex-col pt-32 px-32">
+          <span className="pointer-events-none absolute left-32 top-0 bottom-0 border-l border-dashed border-border" />
+          <span className="pointer-events-none absolute right-32 top-0 bottom-0 border-r border-dashed border-border" />
+
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="relative flex-1 bg-bg-accent bg-noise border border-border">
+            <span className="pointer-events-none absolute -top-px left-1/2 -translate-x-1/2 w-screen border-t border-dashed border-border" />
+            <span className="pointer-events-none absolute -bottom-px left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border" />
+            {children}
+          </main>
           <Footer />
         </body>
       </html>
