@@ -8,6 +8,7 @@ import Input from "@/components/Input";
 import TextArea from "@/components/TextArea";
 import { ThemeModeSwitcher } from "@/components/ThemeSwitcher";
 import ShowcaseItem from "./_components/ShowcaseItem";
+import Card from "@/components/Card";
 
 /** This page is intended to showcase custom ui components. Remove or hide route before release */
 export default function SandboxPage() {
@@ -86,6 +87,18 @@ export default function SandboxPage() {
               prefixIcon={<EnvelopeOpenIcon />}
               suffixIcon={<QuestionMarkCircledIcon />}
             />
+          </ShowcaseItem>
+        </dl>
+      </section>
+
+      <section>
+        <h1 className="text-h1 font-heading font-bold text-text">Card</h1>
+
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <ShowcaseItem label="base">
+            <Card className="w-full text-text" buttonTitle="Submit">
+              Test card
+            </Card>
           </ShowcaseItem>
         </dl>
       </section>
