@@ -6,7 +6,6 @@ import { ReactNode } from "react";
 type CardProps = {
   className?: string;
   buttonTitle: string;
-  children?: ReactNode;
 } & React.ComponentProps<"article">;
 
 export default function Card({
