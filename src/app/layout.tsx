@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeModeProvider } from "@/components/ThemeSwitcher";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -29,7 +31,11 @@ export default function RootLayout({
         lang="en"
         className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased font-body bg-bg`}
       >
-        <body className="min-h-full flex flex-col">{children}</body>
+        <body className="min-h-full flex flex-col p-32">
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </body>
       </html>
     </ThemeModeProvider>
   );
