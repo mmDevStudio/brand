@@ -36,7 +36,7 @@ export default function RootLayout({
           <span className="pointer-events-none absolute right-32 top-0 bottom-0 border-r border-dashed border-border" />
 
           <Navbar />
-          <main className="relative flex-1 bg-bg-accent bg-noise border border-border p-8">
+          <main className="relative flex-1 bg-bg-accent bg-noise border border-border">
             <span className="pointer-events-none absolute -top-px left-1/2 -translate-x-1/2 w-screen border-t border-dashed border-border" />
             <span className="pointer-events-none absolute -bottom-px left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border" />
             {children}
