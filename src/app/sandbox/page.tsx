@@ -9,6 +9,7 @@ import TextArea from "@/components/TextArea";
 import { ThemeModeSwitcher } from "@/components/ThemeSwitcher";
 import ShowcaseItem from "./_components/ShowcaseItem";
 import Card from "@/components/Card";
+import Section from "@/components/Section";
 
 /** This page is intended to showcase custom ui components. Remove or hide route before release */
 export default function SandboxPage() {
@@ -99,6 +100,18 @@ export default function SandboxPage() {
             <Card className="w-full text-text" buttonTitle="Submit">
               Test card
             </Card>
+          </ShowcaseItem>
+        </dl>
+      </section>
+
+      <section>
+        <h1 className="text-h1 font-heading font-bold text-text">Section</h1>
+
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <ShowcaseItem label="base">
+            <Section className="w-full text-text" title="01 / Test Title">
+              Test card
+            </Section>
           </ShowcaseItem>
         </dl>
       </section>
