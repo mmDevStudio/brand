@@ -7,7 +7,7 @@ const NAV_ITEMS: NavItem[] = [
   { href: "", name: "imprint" },
 ];
 
-export default function Navbar() {
+export default function Footer() {
   return (
     <Appbar title="MADE_WITH_💜️/2026" NAV_ITEMS={NAV_ITEMS}>
       <nav />
