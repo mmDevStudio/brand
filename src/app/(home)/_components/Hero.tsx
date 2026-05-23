@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="grid grid-cols-2 gap-8 px-8 mt-24">
+    <section className="grid grid-cols-2 gap-8 px-8">
       <div className="text-title uppercase font-bold h-fit">
         <h1 className="text-text">your digital presence,</h1>
         <h1 className="text-primary">engineered right</h1>

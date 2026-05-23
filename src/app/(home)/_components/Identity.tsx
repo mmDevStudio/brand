@@ -5,7 +5,7 @@ import { ChevronDownIcon } from "@radix-ui/react-icons";
 export default function Identity() {
   return (
     <Section title="01 / IDENTITY" contentClassName="grid grid-cols-2 gap-8">
-      <div className="col-span-2 font-body text-body text-text-subtle">
+      <div className="col-span-2 font-body text-body text-text-subtle leading-10">
         We are a development studio building clean, fast, and modern websites.
         We help small businesses and startups establish their online presence
         with zero unnecessary complexity—just results. Our focus is raw
