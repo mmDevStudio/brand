@@ -9,7 +9,7 @@ const NAV_ITEMS: NavItem[] = [
 
 export default function Navbar() {
   return (
-    <Appbar title="MADE_WITH_💜️/2026" NAV_ITEMS={NAV_ITEMS} lastHightlighted>
+    <Appbar title="MADE_WITH_💜️/2026" NAV_ITEMS={NAV_ITEMS}>
       <nav />
     </Appbar>
   );
