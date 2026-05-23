@@ -2,11 +2,13 @@ import cn from "@/utils/cn";
 
 type SectionProps = {
   className?: string;
+  contentClassName?: string;
   title: string;
 } & React.ComponentProps<"section">;
 
 export default function Section({
   className,
+  contentClassName,
   title,
   children,
   ...props
@@ -21,7 +23,7 @@ export default function Section({
         <div className="flex-1 h-0 border-t border-dashed border-border" />
       </div>
 
-      <div className="pb-8 px-8">{children}</div>
+      <div className={cn("pb-8 px-8", contentClassName)}>{children}</div>
     </section>
   );
 }
