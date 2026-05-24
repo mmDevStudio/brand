@@ -11,8 +11,7 @@ export default function Navbar() {
         { href: SECTION_HREF.SHOWCASE, name: "showcase" },
         { href: SECTION_HREF.CONTACT, name: "build now" },
       ]}
-      lastHighlighted
-      sticky
+      isNav
     />
   );
 }
