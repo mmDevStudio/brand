@@ -8,12 +8,12 @@ type NavItem = { href: string; name: string };
 export default function Appbar({
   title,
   NAV_ITEMS,
-  lastHightlighted = false,
+  lastHighlighted = false,
   children,
 }: {
   title: string;
   NAV_ITEMS: NavItem[];
-  lastHightlighted?: boolean;
+  lastHighlighted?: boolean;
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>; // ts-type: classname exists
 }) {
   return React.cloneElement(
@@ -27,7 +27,7 @@ export default function Appbar({
     <>
       <h1 className="flex-1 text-text font-bold text-2xl">{title}</h1>
       {NAV_ITEMS.map((l, i) => {
-        const highlight = i === NAV_ITEMS.length - 1 && lastHightlighted;
+        const highlight = i === NAV_ITEMS.length - 1 && lastHighlighted;
 
         return (
           <Button

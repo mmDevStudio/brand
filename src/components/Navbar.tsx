@@ -10,7 +10,7 @@ const NAV_ITEMS: NavItem[] = [
 
 export default function Navbar() {
   return (
-    <Appbar title="MMDEV_STUDIO" NAV_ITEMS={NAV_ITEMS} lastHightlighted>
+    <Appbar title="MMDEV_STUDIO" NAV_ITEMS={NAV_ITEMS} lastHighlighted>
       <nav />
     </Appbar>
   );
