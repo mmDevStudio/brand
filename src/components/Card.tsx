@@ -1,4 +1,4 @@
-import { Children } from "react";
+import { Children, Fragment, isValidElement } from "react";
 import cn from "@/utils/cn";
 
 type CardProps = {
@@ -15,12 +15,15 @@ export default function Card({ className, children, ...props }: CardProps) {
       )}
       {...props}
     >
-      {sections.map((section, i) => (
-        <>
-          {i > 0 && <Divider />}
-          {section}
-        </>
-      ))}
+      {sections.map((section, i) => {
+        const k = isValidElement(section) ? section.key : i;
+        return (
+          <Fragment key={k}>
+            {i > 0 && <Divider />}
+            {section}
+          </Fragment>
+        );
+      })}
     </article>
   );
 }

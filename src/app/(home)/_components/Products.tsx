@@ -85,7 +85,7 @@ function PackageCard({
   recommended?: boolean;
 }) {
   return (
-    <Card className="h-115">
+    <Card className="min-h-115">
       {/* Head */}
       <div className="flex flex-col gap-1">
         <div className="flex justify-between items-center">
