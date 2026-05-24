@@ -1,7 +1,7 @@
-import cn from "@/utils/cn";
-import Button from "./Button";
 import Link from "next/link";
 import React from "react";
+import cn from "@/utils/cn";
+import Button from "./Button";
 
 type NavItem = { href: string; name: string };
 

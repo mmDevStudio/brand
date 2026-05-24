@@ -4,12 +4,12 @@ import {
   QuestionMarkCircledIcon,
 } from "@radix-ui/react-icons";
 import Button from "@/components/Button";
+import Card from "@/components/Card";
 import Input from "@/components/Input";
+import Section from "@/components/Section";
 import TextArea from "@/components/TextArea";
 import { ThemeModeSwitcher } from "@/components/ThemeSwitcher";
 import ShowcaseItem from "./_components/ShowcaseItem";
-import Card from "@/components/Card";
-import Section from "@/components/Section";
 
 /** This page is intended to showcase custom ui components. Remove or hide route before release */
 export default function SandboxPage() {

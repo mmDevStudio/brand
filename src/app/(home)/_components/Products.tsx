@@ -1,12 +1,12 @@
-import Button from "@/components/Button";
-import Card from "@/components/Card";
-import Section from "@/components/Section";
 import {
   ArrowRightIcon,
   CheckCircledIcon,
   ChevronDownIcon,
 } from "@radix-ui/react-icons";
 import Link from "next/link";
+import Button from "@/components/Button";
+import Card from "@/components/Card";
+import Section from "@/components/Section";
 
 export default function Products() {
   return (

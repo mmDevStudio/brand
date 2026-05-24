@@ -1,6 +1,6 @@
+import { ChevronDownIcon } from "@radix-ui/react-icons";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
-import { ChevronDownIcon } from "@radix-ui/react-icons";
 
 export default function Identity() {
   return (

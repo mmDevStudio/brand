@@ -1,5 +1,5 @@
-import cn from "@/utils/cn";
 import { Fragment } from "react";
+import cn from "@/utils/cn";
 
 type CardProps = {
   className?: string;
@@ -17,7 +17,7 @@ export default function Card({ className, children, ...props }: CardProps) {
       {...props}
     >
       {sections.map((section, i) => (
-        <Fragment key={i}>
+        <Fragment key={section}>
           {i > 0 && <Divider />}
           {section}
         </Fragment>

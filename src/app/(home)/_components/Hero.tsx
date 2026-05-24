@@ -1,6 +1,6 @@
-import Button from "@/components/Button";
 import { ArrowRightIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
+import Button from "@/components/Button";
 
 export default function Hero() {
   return (
