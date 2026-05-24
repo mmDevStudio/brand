@@ -56,10 +56,11 @@ html {
   background-image: repeating-linear-gradient(
     -45deg,
     var(--color-border-subtle),
-    var(--color-border-subtle) 1.5px,
+    var(--color-border-subtle) 2px,
     var(--color-bg) 2px,
-    var(--color-bg) 10px
+    var(--color-bg) 12px
   );
+  background-size: 12000px 12000px;
 }
 
 @utility bg-noise {

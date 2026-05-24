@@ -1,6 +1,6 @@
 import P from "@/config/pages";
 import { SECTION_HREF } from "@/config/sections";
-import Appbar from "./Appbar";
+import Appbar from "../Appbar";
 
 export default function Footer() {
   return (

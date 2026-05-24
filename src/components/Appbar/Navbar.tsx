@@ -1,5 +1,5 @@
 import { SECTION_HREF } from "@/config/sections";
-import Appbar from "./Appbar";
+import Appbar from "../Appbar";
 
 export default function Navbar() {
   return (
@@ -12,6 +12,7 @@ export default function Navbar() {
         { href: SECTION_HREF.CONTACT, name: "build now" },
       ]}
       lastHighlighted
+      sticky
     />
   );
 }
