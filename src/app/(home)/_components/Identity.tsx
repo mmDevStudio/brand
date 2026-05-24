@@ -1,10 +1,16 @@
 import { ChevronDownIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
+import { SECTION_HREF, SECTION_ID } from "@/config/sections";
 
 export default function Identity() {
   return (
-    <Section title="01 / IDENTITY" contentClassName="grid grid-cols-2 gap-8">
+    <Section
+      title="01 / IDENTITY"
+      contentClassName="grid grid-cols-2 gap-8"
+      sectionId={SECTION_ID.IDENTITY}
+    >
       <div className="col-span-2 font-body text-body text-text-subtle leading-10">
         We are a development studio building clean, fast, and modern websites.
         We help small businesses and startups establish their online presence
@@ -25,7 +31,7 @@ export default function Identity() {
       </Profile>
 
       <Button mode="ghost" suffixIcon={<ChevronDownIcon />} className="w-fit">
-        What we offer
+        <Link href={SECTION_HREF.PRODUCTS}>What we offer</Link>
       </Button>
     </Section>
   );

@@ -1,20 +1,27 @@
+import type { SectionValue } from "@/config/sections";
 import cn from "@/utils/cn";
 
 type SectionProps = {
   className?: string;
   contentClassName?: string;
   title: string;
-} & React.ComponentProps<"section">;
+  sectionId: SectionValue;
+} & Omit<React.ComponentProps<"section">, "id">;
 
 export default function Section({
   className,
   contentClassName,
   title,
   children,
+  sectionId,
   ...props
 }: SectionProps) {
   return (
-    <section className={cn("flex flex-col gap-8", className)} {...props}>
+    <section
+      id={sectionId}
+      className={cn("flex flex-col gap-8", className)}
+      {...props}
+    >
       <div className="flex items-center gap-2.5">
         <div className="w-5.5 h-0 border-t border-dashed border-border shrink-0" />
         <h2 className="text-primary font-bold uppercase font-heading text-xl shrink-0">

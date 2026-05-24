@@ -31,9 +31,7 @@ export default function Appbar<T extends ElementType = "nav">({
             className={cn(!highlight && "font-normal text-text-subtle px-0")}
             key={l.name}
           >
-            <Link className="uppercase" href={l.href}>
-              {l.name}
-            </Link>
+            <Link href={l.href}>{l.name}</Link>
           </Button>
         );
       })}

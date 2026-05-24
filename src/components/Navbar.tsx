@@ -1,3 +1,4 @@
+import { SECTION_HREF } from "@/config/sections";
 import Appbar from "./Appbar";
 
 export default function Navbar() {
@@ -5,10 +6,10 @@ export default function Navbar() {
     <Appbar
       title="MMDEV_STUDIO"
       navItems={[
-        { href: "", name: "identity" },
-        { href: "", name: "products" },
-        { href: "", name: "showcase" },
-        { href: "", name: "build now" },
+        { href: SECTION_HREF.IDENTITY, name: "identity" },
+        { href: SECTION_HREF.PRODUCTS, name: "products" },
+        { href: SECTION_HREF.SHOWCASE, name: "showcase" },
+        { href: SECTION_HREF.CONTACT, name: "build now" },
       ]}
       lastHighlighted
     />

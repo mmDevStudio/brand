@@ -1,13 +1,19 @@
 "use client";
 
 import { ChevronDownIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 import Tabs from "@/components/Tabs";
+import { SECTION_HREF, SECTION_ID } from "@/config/sections";
 
 export default function Showcase() {
   return (
-    <Section title="03 / showcase" contentClassName="flex flex-col gap-8">
+    <Section
+      title="03 / showcase"
+      contentClassName="flex flex-col gap-8"
+      sectionId={SECTION_ID.SHOWCASE}
+    >
       <div className="text-text-subtle leading-10">
         Explore some of our recent contract work. As an indie studio, we pride
         ourselves on delivering custom-tailored websites that cut through the
@@ -46,7 +52,7 @@ export default function Showcase() {
       </Tabs>
 
       <Button mode="ghost" className="w-fit" suffixIcon={<ChevronDownIcon />}>
-        Book your website
+        <Link href={SECTION_HREF.CONTACT}>Book your website</Link>
       </Button>
     </Section>
   );

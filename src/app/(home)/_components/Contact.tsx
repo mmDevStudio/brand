@@ -4,10 +4,15 @@ import Card from "@/components/Card";
 import Input from "@/components/Input";
 import Section from "@/components/Section";
 import TextArea from "@/components/TextArea";
+import { SECTION_ID } from "@/config/sections";
 
 export default function Contact() {
   return (
-    <Section title="04 / contact" contentClassName="grid grid-cols-2 gap-8">
+    <Section
+      title="04 / contact"
+      contentClassName="grid grid-cols-2 gap-8"
+      sectionId={SECTION_ID.CONTACT}
+    >
       <div className="text-text-subtle leading-10 col-span-2">
         Select a package and tell us a bit about your goals. Whether you know
         exactly what you need or just want to explore your options, we review
