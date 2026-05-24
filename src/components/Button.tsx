@@ -4,14 +4,12 @@ import React from "react";
 import cn from "@/utils/cn";
 
 const buttonStyles = cva(
-  "flex items-center text-action cursor-pointer transition outline-0 focus:outlined select-none",
+  "flex items-center text-action cursor-pointer transition select-none",
   {
     variants: {
       mode: {
-        filled:
-          "bg-primary text-foreground focus:bg-primary/80 hover:bg-primary/80",
-        ghost:
-          "bg-transparent text-primary focus:bg-primary/20 hover:bg-primary/20",
+        filled: "bg-primary text-foreground hover:bg-primary/80",
+        ghost: "bg-transparent text-primary highlight hover-highlight",
       },
       size: {
         md: "px-6 py-3 gap-3 text-lg",

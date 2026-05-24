@@ -13,7 +13,6 @@
   --color-border: var(--color-taupe-400);
   --color-border-subtle: var(--color-taupe-200);
   --color-error: var(--color-red-500);
-  --color-outline: var(--color-blue-500);
 
   --text-title: 47.78px;
   --text-h1: 39.81px;
@@ -36,16 +35,11 @@
     --color-border: var(--color-taupe-500);
     --color-border-subtle: var(--color-taupe-800);
     --color-error: var(--color-red-500);
-    --color-outline: var(--color-blue-500);
   }
 }
 
 @utility text-action {
   @apply font-heading text-lg uppercase font-bold leading-none;
-}
-
-@utility outlined {
-  @apply ring-2 ring-outline;
 }
 
 @utility bg-stripes {
@@ -82,21 +76,24 @@
   &::before {
     content: "";
     position: absolute;
-    left: -4px;
-    right: -4px;
-    bottom: 0.125rem;
-    height: 55%;
+    left: -6px;
+    right: -6px;
+    bottom: 0.05rem;
+    height: 60%;
     background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
     z-index: -1;
+    border-radius: 4px 8px 3px 7px;
 
-    transform: scaleX(0);
-
+    transform: scaleX(0) rotate(-1deg);
     transform-origin: left center;
-
     transition: transform 0.1s ease-out;
   }
 
   &.active-highlight::before {
+    transform: scaleX(1);
+  }
+
+  &.hover-highlight:hover::before {
     transform: scaleX(1);
   }
 }

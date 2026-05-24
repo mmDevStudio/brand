@@ -17,7 +17,9 @@ export default function Appbar({
   const Tag = isNav ? "nav" : "footer";
   const content = (
     <Tag className="px-6 py-3 flex gap-6 items-center font-heading">
-      <h1 className="flex-1 text-text font-bold text-2xl">{title}</h1>
+      <h1 className="flex-1 text-text font-bold text-2xl">
+        {isNav ? <Link href="/">{title}</Link> : title}
+      </h1>{" "}
       {navItems.map((l, i) => {
         const highlight = i === navItems.length - 1 && isNav;
 

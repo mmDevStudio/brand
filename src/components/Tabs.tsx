@@ -55,7 +55,7 @@ export default function Tabs({ children, className }: TabsProps) {
                 }}
                 type="button"
                 onClick={() => setActive(i)}
-                className="w-full flex justify-between text-left p-3 cursor-pointer outline-none hover:bg-primary/20 transition"
+                className="w-full flex justify-between text-left p-3 cursor-pointer hover:bg-primary/20 transition"
               >
                 <div className="flex flex-col">
                   <span
