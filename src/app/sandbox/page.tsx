@@ -97,9 +97,7 @@ export default function SandboxPage() {
 
         <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <ShowcaseItem label="base">
-            <Card className="w-full text-text" buttonTitle="Submit">
-              Test card
-            </Card>
+            <Card className="w-full text-text">Test card</Card>
           </ShowcaseItem>
         </dl>
       </section>
