@@ -3,25 +3,25 @@ import type { ElementType } from "react";
 import cn from "@/utils/cn";
 import Button from "./Button";
 
-type NavItem = { href: string; name: string };
+type AppbarProps<T extends ElementType> = {
+  title: string;
+  navItems: { href: string; name: string }[];
+  lastHighlighted?: boolean;
+  as?: T;
+};
 
 export default function Appbar<T extends ElementType = "nav">({
   title,
-  NAV_ITEMS,
+  navItems,
   lastHighlighted = false,
   as,
-}: {
-  title: string;
-  NAV_ITEMS: NavItem[];
-  lastHighlighted?: boolean;
-  as?: T;
-}) {
+}: AppbarProps<T>) {
   const Tag = as ?? "nav";
   return (
     <Tag className="px-6 py-3 flex gap-6 items-center font-heading">
       <h1 className="flex-1 text-text font-bold text-2xl">{title}</h1>
-      {NAV_ITEMS.map((l, i) => {
-        const highlight = i === NAV_ITEMS.length - 1 && lastHighlighted;
+      {navItems.map((l, i) => {
+        const highlight = i === navItems.length - 1 && lastHighlighted;
 
         return (
           <Button

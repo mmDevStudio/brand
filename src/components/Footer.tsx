@@ -5,7 +5,7 @@ export default function Footer() {
     <Appbar
       as="footer"
       title="MADE_WITH_💜️/2026"
-      NAV_ITEMS={[
+      navItems={[
         { href: "", name: "contact@mmdev.studio" },
         { href: "", name: "privacy policy" },
         { href: "", name: "imprint" },

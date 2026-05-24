@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <Appbar
       title="MMDEV_STUDIO"
-      NAV_ITEMS={[
+      navItems={[
         { href: "", name: "identity" },
         { href: "", name: "products" },
         { href: "", name: "showcase" },
