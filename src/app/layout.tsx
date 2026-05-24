@@ -29,7 +29,7 @@ export default function RootLayout({
     <ThemeModeProvider>
       <html
         lang="en"
-        className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased font-body bg-bg bg-stripes overscroll-none`}
+        className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased font-body bg-bg bg-stripes overscroll-y-none`}
       >
         <body className="relative min-h-full flex flex-col pt-32 px-32">
           <span className="pointer-events-none absolute left-32 top-0 bottom-0 border-l border-dashed border-border" />

@@ -1,3 +1,4 @@
+import Contact from "./_components/Contact";
 import Hero from "./_components/Hero";
 import Identity from "./_components/Identity";
 import Products from "./_components/Products";
@@ -10,6 +11,7 @@ export default function Home() {
       <Identity />
       <Products />
       <Showcase />
+      <Contact />
     </div>
   );
 }

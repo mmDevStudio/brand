@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import React from "react";
+import type React from "react";
 import cn from "@/utils/cn";
 
 export const inputContainerStyles = cva(
@@ -24,11 +24,8 @@ export default function Input({
   id,
   ...props
 }: InputProps) {
-  const fallbackId = React.useId();
-  id ||= fallbackId;
-
   return (
-    <label className={cn(inputContainerStyles(), className)} htmlFor={id}>
+    <div className={cn(inputContainerStyles(), className)}>
       {prefixIcon && (
         <span className="shrink-0 text-text-subtle">{prefixIcon}</span>
       )}
@@ -38,6 +35,6 @@ export default function Input({
       {suffixIcon && (
         <span className="shrink-0 text-text-subtle">{suffixIcon}</span>
       )}
-    </label>
+    </div>
   );
 }
