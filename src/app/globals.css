@@ -72,3 +72,30 @@
   background: var(--color-primary);
   color: var(--color-bg-accent);
 }
+
+@utility highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: 0.125rem;
+    height: 55%;
+    background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+    z-index: -1;
+
+    transform: scaleX(0);
+
+    transform-origin: left center;
+
+    transition: transform 0.1s ease-out;
+  }
+
+  &.active-highlight::before {
+    transform: scaleX(1);
+  }
+}

@@ -60,8 +60,8 @@ export default function Tabs({ children, className }: TabsProps) {
                 <div className="flex flex-col">
                   <span
                     className={cn(
-                      "text-h4 text-text font-bold uppercase font-heading w-fit",
-                      active === i && "bg-primary",
+                      "text-h4 text-text font-bold uppercase font-heading w-fit highlight",
+                      active === i && "active-highlight",
                     )}
                   >
                     {tab.props.title}
