@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-}
-
 @theme {
   --font-body: var(--font-geist-mono);
   --font-heading: var(--font-space-grotesk);
