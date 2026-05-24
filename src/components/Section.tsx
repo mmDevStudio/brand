@@ -19,7 +19,7 @@ export default function Section({
   return (
     <section
       id={sectionId}
-      className={cn("flex flex-col gap-8", className)}
+      className={cn("flex flex-col gap-8 scroll-mt-10", className)}
       {...props}
     >
       <div className="flex items-center gap-2.5">
