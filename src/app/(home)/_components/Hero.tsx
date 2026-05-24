@@ -10,7 +10,13 @@ export default function Hero() {
         <h1 className="text-primary">engineered right</h1>
       </div>
       <div>
-        <Image src="/[MM].svg" alt="MM" height={200} width={593} />
+        <Image
+          className="select-none"
+          src="/[MM].svg"
+          alt="MM"
+          height={200}
+          width={593}
+        />
       </div>
 
       <div className="col-span-2 text-lg text-text-subtle leading-10">
