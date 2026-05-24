@@ -8,7 +8,6 @@ import {
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Input from "@/components/Input";
-import Section from "@/components/Section";
 import Tabs from "@/components/Tabs";
 import TextArea from "@/components/TextArea";
 import { ThemeModeSwitcher } from "@/components/ThemeSwitcher";
@@ -129,18 +128,6 @@ export default function SandboxPage() {
         <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <ShowcaseItem label="base">
             <Card className="w-full text-text">Test card</Card>
-          </ShowcaseItem>
-        </dl>
-      </section>
-
-      <section>
-        <h1 className="text-h1 font-heading font-bold text-text">Section</h1>
-
-        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <ShowcaseItem label="base">
-            <Section className="w-full text-text" title="01 / Test Title">
-              Test card
-            </Section>
           </ShowcaseItem>
         </dl>
       </section>
