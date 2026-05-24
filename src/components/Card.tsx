@@ -1,20 +1,13 @@
 import cn from "@/utils/cn";
-import Button from "./Button";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { Fragment } from "react";
 
 type CardProps = {
   className?: string;
-  buttonTitle: string;
-  buttonMode?: "ghost" | "filled";
 } & React.ComponentProps<"article">;
 
-export default function Card({
-  className,
-  buttonTitle,
-  children,
-  buttonMode,
-  ...props
-}: CardProps) {
+export default function Card({ className, children, ...props }: CardProps) {
+  const sections = Array.isArray(children) ? children : [children];
+
   return (
     <article
       className={cn(
@@ -23,17 +16,18 @@ export default function Card({
       )}
       {...props}
     >
-      <div className="flex-1">{children}</div>
-
-      <div className="-mx-3 my-1.5 h-0 border-t border-dashed border-border" />
-
-      <Button
-        mode={buttonMode === undefined ? "filled" : buttonMode}
-        size="sm"
-        suffixIcon={<ArrowRightIcon />}
-      >
-        {buttonTitle}
-      </Button>
+      {sections.map((section, i) => (
+        <Fragment key={i}>
+          {i > 0 && <Divider />}
+          {section}
+        </Fragment>
+      ))}
     </article>
+  );
+}
+
+function Divider() {
+  return (
+    <div className="-mx-3 my-1.5 h-0 border-t border-dashed border-border" />
   );
 }

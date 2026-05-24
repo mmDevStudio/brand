@@ -1,7 +1,11 @@
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
-import { CheckCircledIcon, ChevronDownIcon } from "@radix-ui/react-icons";
+import {
+  ArrowRightIcon,
+  CheckCircledIcon,
+  ChevronDownIcon,
+} from "@radix-ui/react-icons";
 import Link from "next/link";
 
 export default function Products() {
@@ -81,28 +85,22 @@ function PackageCard({
   recommended?: boolean;
 }) {
   return (
-    <Card
-      buttonTitle={`select ${title}`}
-      buttonMode={recommended ? "filled" : "ghost"}
-      className="h-115"
-    >
-      <div className="flex flex-col h-full">
-        <div className="flex flex-col gap-1">
-          <div className="flex justify-between items-center">
-            <h4 className="text-text font-heading text-h4 font-bold">
-              {title}
-            </h4>
-            {recommended && (
-              <span className="uppercase font-medium text-primary">
-                Recommended
-              </span>
-            )}
-          </div>
-          <span className="text-text-subtle text-sm uppercase">{subtitle}</span>
+    <Card className="h-115">
+      {/* Head */}
+      <div className="flex flex-col gap-1">
+        <div className="flex justify-between items-center">
+          <h4 className="text-text font-heading text-h4 font-bold">{title}</h4>
+          {recommended && (
+            <span className="uppercase font-medium text-primary">
+              Recommended
+            </span>
+          )}
         </div>
+        <span className="text-text-subtle text-sm uppercase">{subtitle}</span>
+      </div>
 
-        <div className="-mx-3 my-3 h-0 border-t border-dashed border-border" />
-
+      {/* Body */}
+      <div className="flex flex-col flex-1 justify-between">
         <ul>
           {features.map((f) => (
             <li
@@ -115,13 +113,21 @@ function PackageCard({
           ))}
         </ul>
 
-        <div className="font-heading mt-auto flex gap-2 items-center">
+        <div className="font-heading flex gap-2 items-center">
           <span className="text-h4 text-primary font-bold">{price}€</span>
           <span className="uppercase text-text-subtle text-sm pt-1.5">
             per unit
           </span>
         </div>
       </div>
+
+      {/* Foot */}
+      <Button
+        mode={recommended ? "filled" : "ghost"}
+        suffixIcon={<ArrowRightIcon />}
+      >
+        select {title}
+      </Button>
     </Card>
   );
 }
