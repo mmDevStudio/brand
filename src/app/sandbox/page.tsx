@@ -1,3 +1,5 @@
+"use client";
+
 import {
   EnvelopeOpenIcon,
   PersonIcon,
@@ -7,6 +9,7 @@ import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Input from "@/components/Input";
 import Section from "@/components/Section";
+import Tabs from "@/components/Tabs";
 import TextArea from "@/components/TextArea";
 import { ThemeModeSwitcher } from "@/components/ThemeSwitcher";
 import ShowcaseItem from "./_components/ShowcaseItem";
@@ -31,6 +34,34 @@ export default function SandboxPage() {
 
         <hr className="text-border-subtle" />
       </header>
+
+      <section>
+        <h1 className="text-h1 font-heading font-bold text-text">Tabs</h1>
+
+        <dl>
+          <ShowcaseItem label="base">
+            <Tabs>
+              <Tabs.Tab
+                key={"1"}
+                title="title"
+                subtitle="subtitle"
+                className=""
+              >
+                Test
+              </Tabs.Tab>
+              <Tabs.Tab key={"2"} title="title2" subtitle="subtitle2">
+                Test2
+              </Tabs.Tab>
+              <Tabs.Tab key={"3"} title="title3" subtitle="subtitle3">
+                Test3
+              </Tabs.Tab>
+              <Tabs.Tab key={"4"} title="title4" subtitle="subtitle4">
+                Test4
+              </Tabs.Tab>
+            </Tabs>
+          </ShowcaseItem>
+        </dl>
+      </section>
 
       <section>
         <h1 className="text-h1 font-heading font-bold text-text">Button</h1>
