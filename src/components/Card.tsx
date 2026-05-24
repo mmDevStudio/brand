@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Children } from "react";
 import cn from "@/utils/cn";
 
 type CardProps = {
@@ -6,8 +6,7 @@ type CardProps = {
 } & React.ComponentProps<"article">;
 
 export default function Card({ className, children, ...props }: CardProps) {
-  const sections = Array.isArray(children) ? children : [children];
-
+  const sections = Children.toArray(children);
   return (
     <article
       className={cn(
@@ -17,10 +16,10 @@ export default function Card({ className, children, ...props }: CardProps) {
       {...props}
     >
       {sections.map((section, i) => (
-        <Fragment key={section}>
+        <>
           {i > 0 && <Divider />}
           {section}
-        </Fragment>
+        </>
       ))}
     </article>
   );
