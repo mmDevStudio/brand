@@ -1,14 +1,21 @@
-import { Children, Fragment, isValidElement } from "react";
+import { Children, type ElementType, Fragment, isValidElement } from "react";
 import cn from "@/utils/cn";
 
-type CardProps = {
+type CardProps<T extends ElementType> = {
   className?: string;
-} & React.ComponentProps<"article">;
+  as?: T;
+} & React.ComponentProps<T>;
 
-export default function Card({ className, children, ...props }: CardProps) {
+export default function Card<T extends ElementType = "article">({
+  className,
+  children,
+  as,
+  ...props
+}: CardProps<T>) {
   const sections = Children.toArray(children);
+  const Tag = as ?? "article";
   return (
-    <article
+    <Tag
       className={cn(
         "p-3 flex flex-col border border-border-subtle gap-2 bg-bg bg-stripes",
         className,
@@ -24,7 +31,7 @@ export default function Card({ className, children, ...props }: CardProps) {
           </Fragment>
         );
       })}
-    </article>
+    </Tag>
   );
 }
 
