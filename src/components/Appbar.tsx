@@ -1,6 +1,5 @@
 import Link from "next/link";
 import cn from "@/utils/cn";
-import StickyNavWrapper from "./Appbar/StickyNavWrapper";
 import Button from "./Button";
 
 type AppbarProps = {
@@ -15,7 +14,7 @@ export default function Appbar({
   isNav = false,
 }: AppbarProps) {
   const Tag = isNav ? "nav" : "footer";
-  const content = (
+  return (
     <Tag className="px-6 py-3 flex gap-6 items-center font-heading">
       <h1 className="flex-1 text-text font-bold text-2xl">
         {isNav ? <Link href="/">{title}</Link> : title}
@@ -37,6 +36,4 @@ export default function Appbar({
       })}
     </Tag>
   );
-
-  return isNav ? <StickyNavWrapper>{content}</StickyNavWrapper> : content;
 }
