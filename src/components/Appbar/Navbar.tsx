@@ -12,18 +12,27 @@ export default function Navbar() {
     if (!el) return;
 
     const bodyStyle = getComputedStyle(document.body);
-    const naturalTop = el.offsetTop;
     const naturalLeft = -parseFloat(bodyStyle.paddingLeft) + 0.25;
 
     const sync = () => {
+      const rect = el.getBoundingClientRect();
+      const currentTop = window.scrollY + rect.top;
+
       const scroll = window.scrollY;
+
+      const bgY = scroll >= currentTop ? -scroll : -currentTop;
+
       el.style.backgroundPositionX = `${naturalLeft}px`;
-      el.style.backgroundPositionY = `${-Math.max(naturalTop, scroll)}px`;
+      el.style.backgroundPositionY = `${bgY}px`;
     };
 
     sync();
     window.addEventListener("scroll", sync, { passive: true });
-    return () => window.removeEventListener("scroll", sync);
+    window.addEventListener("resize", sync, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", sync);
+      window.removeEventListener("resize", sync);
+    };
   }, []);
 
   return (
