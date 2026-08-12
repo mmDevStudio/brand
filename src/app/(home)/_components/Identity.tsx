@@ -3,6 +3,7 @@ import Link from "next/link";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 import { SECTION_HREF, SECTION_ID } from "@/config/sections";
+import Profile from "./Profile";
 
 export default function Identity() {
   return (
@@ -34,27 +35,5 @@ export default function Identity() {
         <Link href={SECTION_HREF.PRODUCTS}>What we offer</Link>
       </Button>
     </Section>
-  );
-}
-
-function Profile({
-  name,
-  title,
-  children,
-}: {
-  name: string;
-  title: string;
-  children: string;
-}) {
-  return (
-    <article className="flex flex-col">
-      <span className="text-xl text-text font-heading font-bold">{name}</span>
-      <span className="text-text-subtle font-heading text-body font-bold mb-3 uppercase">
-        {title}
-      </span>
-      <span className="text-text-subtle leading-10 text-body font-body">
-        {children}
-      </span>
-    </article>
   );
 }
