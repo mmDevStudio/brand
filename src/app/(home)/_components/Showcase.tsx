@@ -5,14 +5,14 @@ import Link from "next/link";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 import Tabs from "@/components/Tabs";
-import { SECTION_ID } from "@/config/content";
+import { sections } from "@/lib/content";
 
 export default function Showcase() {
   return (
     <Section
       title="03 / showcase"
       contentClassName="flex flex-col gap-8"
-      id={SECTION_ID.SHOWCASE}
+      id={sections.showcase.id}
     >
       <div className="text-text-subtle leading-10">
         Explore some of our recent contract work. As an indie studio, we pride
@@ -57,7 +57,7 @@ export default function Showcase() {
         className="w-fit"
         suffixIcon={<ChevronDownIcon />}
       >
-        <Link href={`/#${SECTION_ID.CONTACT}`}>Book your website</Link>
+        <Link href={sections.contact.href}>Book your website</Link>
       </Button>
     </Section>
   );

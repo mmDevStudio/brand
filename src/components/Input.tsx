@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 import type React from "react";
-import cn from "@/utils/cn";
+import cn from "@/lib/cn";
 
 export const inputContainerStyles = cva(
   `flex items-center border-border border-1 px-3 py-2 gap-3 bg-bg

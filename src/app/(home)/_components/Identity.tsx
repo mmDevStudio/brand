@@ -2,7 +2,7 @@ import { ChevronDownIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
-import { SECTION_ID } from "@/config/content";
+import { sections } from "@/lib/content";
 import Profile from "./Profile";
 
 export default function Identity() {
@@ -10,7 +10,7 @@ export default function Identity() {
     <Section
       title="01 / IDENTITY"
       contentClassName="grid grid-cols-2 gap-8"
-      id={SECTION_ID.IDENTITY}
+      id={sections.identity.id}
     >
       <div className="col-span-2 font-body text-body text-text-subtle leading-10">
         We are a development studio building clean, fast, and modern websites.
@@ -37,7 +37,7 @@ export default function Identity() {
         suffixIcon={<ChevronDownIcon />}
         className="w-fit"
       >
-        <Link href={`/#${SECTION_ID.PRODUCTS}`}>What we offer</Link>
+        <Link href={sections.products.href}>What we offer</Link>
       </Button>
     </Section>
   );

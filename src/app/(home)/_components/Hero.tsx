@@ -2,11 +2,11 @@ import { ArrowRightIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/Button";
-import { SECTION_ID } from "@/config/content";
+import { sections } from "@/lib/content";
 
 export default function Hero() {
   return (
-    <section className="grid grid-cols-2 gap-8 px-8" id={SECTION_ID.HERO}>
+    <section className="grid grid-cols-2 gap-8 px-8" id={sections.hero.id}>
       <div className="text-title uppercase font-bold h-fit">
         <h1 className="text-text">your digital presence,</h1>
         <h1 className="text-primary">engineered right</h1>
@@ -33,7 +33,7 @@ export default function Hero() {
         suffixIcon={<ChevronDownIcon />}
         className="w-fit"
       >
-        <Link href={`/#${SECTION_ID.IDENTITY}`}>WHO WE ARE</Link>
+        <Link href={sections.identity.href}>WHO WE ARE</Link>
       </Button>
 
       <Button
@@ -42,7 +42,7 @@ export default function Hero() {
         suffixIcon={<ArrowRightIcon />}
         className="w-fit justify-self-end"
       >
-        <Link href={`/#${SECTION_ID.CONTACT}`}>Start now</Link>
+        <Link href={sections.contact.href}>Start now</Link>
       </Button>
     </section>
   );
