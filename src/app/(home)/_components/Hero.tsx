@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
-import { SECTION_ID } from "@/config/content";
+import { sections } from "@/lib/content";
 
 export default function Hero() {
   return (
-    <Section id={SECTION_ID.HERO}>
+    <Section id={sections.hero}>
       <Section.Body className="grid grid-cols-2 gap-8">
         <h1 className="text-title uppercase font-bold w-fit self-center">
           <span className="text-text">your digital presence,</span>
@@ -31,17 +31,22 @@ export default function Hero() {
           digital ledgers that prioritize clarity over clutter.
         </p>
 
-        <Button asChild mode="ghost" suffixIcon={<ChevronDownIcon />}>
-          <Link href={`/#${SECTION_ID.IDENTITY}`}>WHO WE ARE</Link>
+        <Button
+          asChild
+          mode="ghost"
+          suffixIcon={<ChevronDownIcon />}
+          className="w-fit"
+        >
+          <Link href={`/#${sections.identity}`}>WHO WE ARE</Link>
         </Button>
 
         <Button
           asChild
           mode="filled"
           suffixIcon={<ArrowRightIcon />}
-          className="justify-self-end"
+          className="w-fit justify-self-end"
         >
-          <Link href={`/#${SECTION_ID.CONTACT}`}>Start now</Link>
+          <Link href={`/#${sections.contact}`}>Start now</Link>
         </Button>
       </Section.Body>
     </Section>

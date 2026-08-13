@@ -1,5 +1,5 @@
 import Link from "next/link";
-import cn from "@/utils/cn";
+import cn from "@/lib/cn";
 import Button from "./Button";
 
 type AppbarProps = {

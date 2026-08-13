@@ -5,11 +5,11 @@ import Link from "next/link";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 import Tabs from "@/components/Tabs";
-import { SECTION_ID } from "@/config/content";
+import { sections } from "@/lib/content";
 
 export default function Showcase() {
   return (
-    <Section id={SECTION_ID.SHOWCASE}>
+    <Section id={sections.showcase}>
       <Section.Header>03 / showcase</Section.Header>
 
       <Section.Body className="flex flex-col gap-8">
@@ -50,8 +50,13 @@ export default function Showcase() {
           </Tabs.Tab>
         </Tabs>
 
-        <Button asChild mode="ghost" suffixIcon={<ChevronDownIcon />}>
-          <Link href={`/#${SECTION_ID.CONTACT}`}>Book your website</Link>
+        <Button
+          asChild
+          mode="ghost"
+          className="w-fit"
+          suffixIcon={<ChevronDownIcon />}
+        >
+          <Link href={`/#${sections.contact}`}>Book your website</Link>
         </Button>
       </Section.Body>
     </Section>

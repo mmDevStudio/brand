@@ -7,11 +7,11 @@ import Link from "next/link";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
-import { SECTION_ID } from "@/config/content";
+import { sections } from "@/lib/content";
 
 export default function Products() {
   return (
-    <Section id={SECTION_ID.PRODUCTS}>
+    <Section id={sections.products}>
       <Section.Header>02 / our products</Section.Header>
 
       <Section.Body className="grid grid-cols-3 gap-8">
@@ -61,15 +61,20 @@ export default function Products() {
           happily advice you what fits best for your use case, even if it’s not
           covered in one of our displayed products.{" "}
           <Link
-            href={`/#${SECTION_ID.CONTACT}`}
+            href={`/#${sections.contact}`}
             className="text-primary underline"
           >
             Just write us!
           </Link>
         </div>
 
-        <Button asChild mode="ghost" suffixIcon={<ChevronDownIcon />}>
-          <Link href={`/#${SECTION_ID.SHOWCASE}`}>What customers say</Link>
+        <Button
+          asChild
+          mode="ghost"
+          className="w-fit"
+          suffixIcon={<ChevronDownIcon />}
+        >
+          <Link href={`/#${sections.showcase}`}>What customers say</Link>
         </Button>
       </Section.Body>
     </Section>
