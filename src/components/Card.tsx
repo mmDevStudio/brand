@@ -1,38 +1,71 @@
-import { Children, type ElementType, Fragment, isValidElement } from "react";
+import {
+  Children,
+  type ComponentPropsWithoutRef,
+  cloneElement,
+  Fragment,
+  isValidElement,
+  type ReactNode,
+} from "react";
 import cn from "@/utils/cn";
 
-type CardProps<T extends ElementType> = {
+type CardProps = {
   className?: string;
-  as?: T;
-} & React.ComponentProps<T>;
+  children: ReactNode;
+  asChild?: boolean;
+} & ComponentPropsWithoutRef<"article">;
 
-export default function Card<T extends ElementType = "article">({
+export default function Card({
   className,
   children,
-  as,
+  asChild,
   ...props
-}: CardProps<T>) {
+}: CardProps) {
   const sections = Children.toArray(children);
-  const Tag = as ?? "article";
-  return (
-    <Tag
-      className={cn(
-        "p-3 flex flex-col border border-border-subtle gap-2 bg-bg bg-stripes",
-        className,
-      )}
-      {...props}
-    >
-      {sections.map((section, i) => {
-        const k = isValidElement(section) ? section.key : i;
-        return (
-          <Fragment key={k}>
-            {i > 0 && <Divider />}
-            {section}
-          </Fragment>
-        );
-      })}
-    </Tag>
+  const baseClasses = cn(
+    "p-3 flex flex-col border border-border-subtle gap-2 bg-bg bg-stripes",
+    className,
   );
+
+  const content = sections.map((section, i) => {
+    const k = isValidElement(section) ? section.key : i;
+    return (
+      <Fragment key={k}>
+        {i > 0 && <Divider />}
+        {section}
+      </Fragment>
+    );
+  });
+
+  if (asChild) {
+    if (!isValidElement<ComponentPropsWithoutRef<"article">>(children)) {
+      throw new Error(
+        "Card with 'asChild' expects a single valid React element as a child.",
+      );
+    }
+
+    return cloneElement(children, {
+      ...props,
+      className: cn(baseClasses, children.props.className),
+    });
+  }
+
+  return (
+    <article className={baseClasses} {...props}>
+      {content}
+    </article>
+  );
+}
+
+function Head({ className, ...props }: ComponentPropsWithoutRef<"div">) {
+  return <div className={cn("flex flex-col gap-1", className)} {...props} />;
+}
+
+function Main({ className, ...props }: ComponentPropsWithoutRef<"div">) {
+  return <div className={cn("flex flex-col gap-1", className)} {...props} />;
+}
+
+function Foot({ className, ...props }: ComponentPropsWithoutRef<"div">) {
+  return <div className={cn("flex flex-col gap-1", className)} {...props} />;
 }
 
 function Divider() {
@@ -40,3 +73,7 @@ function Divider() {
     <div className="-mx-3 my-1.5 h-0 border-t border-dashed border-border" />
   );
 }
+
+Card.Head = Head;
+Card.Main = Main;
+Card.Foot = Foot;

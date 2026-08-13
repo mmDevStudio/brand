@@ -38,8 +38,8 @@ export default function Contact() {
         </li>
       </ul>
 
-      <Card as="form">
-        <div className="flex flex-col gap-8">
+      <Card>
+        <Card.Main className="flex flex-col gap-8">
           <label
             htmlFor="product-package"
             className="uppercase text-text text-sm flex flex-col gap-2.5"
@@ -80,8 +80,10 @@ export default function Contact() {
               className="w-full min-h-25"
             />
           </label>
-        </div>
-        <Button>Send request</Button>
+        </Card.Main>
+        <Card.Foot>
+          <Button>Send request</Button>
+        </Card.Foot>
       </Card>
     </Section>
   );
