@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Appbar/Footer";
-import Navbar from "@/components/Appbar/Navbar";
+import Footer from "@/components/AppBar/Footer";
+import NavBar from "@/components/AppBar/NavBar";
 import { ThemeModeProvider } from "@/components/ThemeSwitcher";
 
 const spaceGrotesk = Space_Grotesk({
@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <body className="relative min-h-full flex flex-col pt-32 px-32">
           <div className="container mx-auto">
-            <Navbar />
+            <NavBar />
             <main className="relative flex-1 bg-bg-accent bg-noise border border-border">
               <span className="pointer-events-none absolute z-2 -bottom-px left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border" />
               {children}
