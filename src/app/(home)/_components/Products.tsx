@@ -96,8 +96,7 @@ function PackageCard({
 }) {
   return (
     <Card className="min-h-115">
-      {/* Head */}
-      <Card.Head className="flex flex-col gap-1">
+      <Card.Header className="flex flex-col gap-1">
         <div className="flex justify-between items-center">
           <h4 className="text-text font-heading text-h4 font-bold">{title}</h4>
           {recommended && (
@@ -107,10 +106,9 @@ function PackageCard({
           )}
         </div>
         <span className="text-text-subtle text-sm uppercase">{subtitle}</span>
-      </Card.Head>
+      </Card.Header>
 
-      {/* Body */}
-      <Card.Main className="flex flex-col flex-1 justify-between">
+      <Card.Body className="flex flex-col flex-1 justify-between">
         <ul>
           {features.map((f) => (
             <li
@@ -129,17 +127,17 @@ function PackageCard({
             per unit
           </span>
         </div>
-      </Card.Main>
+      </Card.Body>
 
-      {/* Foot */}
-      <Card.Foot>
+      <Card.Footer>
         <Button
+          className="size-full"
           mode={recommended ? "filled" : "ghost"}
           suffixIcon={<ArrowRightIcon />}
         >
           select {title}
         </Button>
-      </Card.Foot>
+      </Card.Footer>
     </Card>
   );
 }

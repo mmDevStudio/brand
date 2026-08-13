@@ -127,7 +127,20 @@ export default function SandboxPage() {
 
         <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <ShowcaseItem label="base">
-            <Card className="w-full text-text">Test card</Card>
+            <Card className="w-full text-text">
+              <Card.Header>
+                <h2 className="font-heading text-h4 font-bold">Card title</h2>
+                <p className="text-sm uppercase text-text-subtle">
+                  Card subtitle
+                </p>
+              </Card.Header>
+              <Card.Body className="text-text-subtle">
+                Card body content demonstrates the compound component layout.
+              </Card.Body>
+              <Card.Footer>
+                <Button size="sm">Card action</Button>
+              </Card.Footer>
+            </Card>
           </ShowcaseItem>
         </dl>
       </section>
