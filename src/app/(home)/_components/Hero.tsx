@@ -18,6 +18,7 @@ export default function Hero() {
           alt="MM"
           height={200}
           width={593}
+          loading="eager"
         />
       </div>
 
