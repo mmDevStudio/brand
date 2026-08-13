@@ -29,7 +29,7 @@ export default function RootLayout({
     <ThemeModeProvider>
       <html
         lang="en"
-        className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased font-body bg-bg bg-stripes bg-fixed overscroll-y-none scroll-smooth`}
+        className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased font-body bg-bg bg-stripes overscroll-y-none scroll-smooth`}
       >
         <body className="relative min-h-full flex flex-col pt-32 px-32">
           <div className="container mx-auto">
