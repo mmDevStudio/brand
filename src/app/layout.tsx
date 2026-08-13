@@ -31,13 +31,15 @@ export default function RootLayout({
         lang="en"
         className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased font-body bg-bg bg-stripes overscroll-y-none scroll-smooth`}
       >
-        <body className="relative min-h-full flex flex-col pt-32 px-32">
-          <NavBar />
-          <main className="relative flex-1 bg-bg-accent bg-noise border border-border">
-            <span className="pointer-events-none absolute -bottom-px left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border" />
-            {children}
-          </main>
-          <Footer />
+        <body className="relative min-h-full flex flex-col">
+          <div className="relative flex flex-1 flex-col pt-32 px-32 [contain:layout]">
+            <NavBar />
+            <main className="relative flex-1 bg-bg-accent bg-noise border border-border">
+              <span className="pointer-events-none absolute -bottom-px left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border" />
+              {children}
+            </main>
+            <Footer />
+          </div>
         </body>
       </html>
     </ThemeModeProvider>
