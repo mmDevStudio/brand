@@ -2,12 +2,12 @@ import { ChevronDownIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
-import { SECTION_ID } from "@/config/content";
+import { sections } from "@/lib/content";
 import Profile from "./Profile";
 
 export default function Identity() {
   return (
-    <Section id={SECTION_ID.IDENTITY}>
+    <Section id={sections.identity}>
       <Section.Header>01 / identity</Section.Header>
 
       <Section.Body className="grid grid-cols-2 gap-8">
@@ -30,8 +30,13 @@ export default function Identity() {
           rooted in low-level programming and IoT (Internet of Things).
         </Profile>
 
-        <Button asChild mode="ghost" suffixIcon={<ChevronDownIcon />}>
-          <Link href={`/#${SECTION_ID.PRODUCTS}`}>What we offer</Link>
+        <Button
+          asChild
+          mode="ghost"
+          suffixIcon={<ChevronDownIcon />}
+          className="w-fit"
+        >
+          <Link href={`/#${sections.products}`}>What we offer</Link>
         </Button>
       </Section.Body>
     </Section>

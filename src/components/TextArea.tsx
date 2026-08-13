@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 import React from "react";
-import cn from "@/utils/cn";
+import cn from "@/lib/cn";
 import { inputContainerStyles, inputStyles } from "./Input";
 
 const textareaContainerStyles = cva("items-start");

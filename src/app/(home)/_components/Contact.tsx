@@ -1,10 +1,10 @@
 import Section from "@/components/Section";
-import { SECTION_ID } from "@/config/content";
-import ContactCard from "./ContactCard";
+import TextArea from "@/components/TextArea";
+import { sections } from "@/lib/content";
 
 export default function Contact() {
   return (
-    <Section id={SECTION_ID.CONTACT}>
+    <Section id={sections.contact}>
       <Section.Header>04 / contact</Section.Header>
 
       <Section.Body className="grid grid-cols-2 gap-8">
