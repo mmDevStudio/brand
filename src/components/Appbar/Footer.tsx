@@ -1,5 +1,4 @@
-import P from "@/config/pages";
-import { SECTION_HREF } from "@/config/sections";
+import P, { SECTION_ID } from "@/config/content";
 import Appbar from "../Appbar";
 
 export default function Footer() {
@@ -7,7 +6,7 @@ export default function Footer() {
     <Appbar
       title="MADE_WITH_💜️/2026"
       navItems={[
-        { href: SECTION_HREF.CONTACT, name: "contact@mmdev.studio" },
+        { href: `/#${SECTION_ID.CONTACT}`, name: "contact@mmdev.studio" },
         { href: P.PRIVACY_POLICY, name: "privacy policy" },
         { href: P.IMPRINT, name: "imprint" },
       ]}
