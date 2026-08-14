@@ -32,12 +32,14 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased font-body bg-bg bg-stripes overscroll-y-none scroll-smooth`}
       >
         <body className="relative min-h-full flex flex-col pt-32 px-32">
-          <Navbar />
-          <main className="relative flex-1 bg-bg-accent bg-noise border border-border">
-            <span className="pointer-events-none absolute z-2 -bottom-px left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border" />
-            {children}
-          </main>
-          <Footer />
+          <div className="container mx-auto">
+            <Navbar />
+            <main className="relative flex-1 bg-bg-accent bg-noise border border-border">
+              <span className="pointer-events-none absolute z-2 -bottom-px left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border" />
+              {children}
+            </main>
+            <Footer />
+          </div>
         </body>
       </html>
     </ThemeModeProvider>
