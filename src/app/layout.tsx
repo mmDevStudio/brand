@@ -35,7 +35,7 @@ export default function RootLayout({
           <Navbar />
           <main className="relative flex-1 bg-bg-accent bg-noise border border-border">
             <span className="pointer-events-none absolute z-2 -bottom-px left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border" />
-            <div className="relative z-1">{children}</div>
+            {children}
           </main>
           <Footer />
         </body>

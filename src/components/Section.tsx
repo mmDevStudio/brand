@@ -18,7 +18,7 @@ function Header({
 
 function Body({ children, className, ...props }: React.ComponentProps<"main">) {
   return (
-    <main className={cn("pb-8 px-8", className)} {...props}>
+    <main className={cn("px-8", className)} {...props}>
       {children}
     </main>
   );
@@ -31,7 +31,10 @@ export default function Section({
 }: React.ComponentProps<"section">) {
   return (
     <section
-      className={cn("flex flex-col gap-8 scroll-mt-20", className)}
+      className={cn(
+        "flex flex-col gap-8 scroll-mt-20 my-24 overflow-hidden",
+        className,
+      )}
       {...props}
     >
       {children}
