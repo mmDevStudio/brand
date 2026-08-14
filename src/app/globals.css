@@ -60,7 +60,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
     background-color: var(--color-border);
     mask-image: url("/container-noise.svg");
