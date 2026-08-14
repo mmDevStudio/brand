@@ -34,8 +34,8 @@ export default function RootLayout({
         <body className="relative min-h-full flex flex-col pt-32 px-32">
           <Navbar />
           <main className="relative flex-1 bg-bg-accent bg-noise border border-border">
-            <span className="pointer-events-none absolute -bottom-px left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border" />
-            {children}
+            <span className="pointer-events-none absolute z-2 -bottom-px left-1/2 -translate-x-1/2 w-screen border-b border-dashed border-border" />
+            <div className="relative z-1">{children}</div>
           </main>
           <Footer />
         </body>
