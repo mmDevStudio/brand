@@ -1,6 +1,6 @@
 import * as Slot from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
-import React from "react";
+import type React from "react";
 import cn from "@/utils/cn";
 
 const buttonStyles = cva(
@@ -38,22 +38,17 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const Comp = asChild ? Slot.Root : "button";
-
-  const slottedChildren = React.isValidElement<HTMLElement>(children)
-    ? React.cloneElement(
-        children,
-        children.props,
-        <span className="flex-1 truncate">
-          {children.props.children as React.ReactNode}
-        </span>,
-      )
-    : children && <span className="flex-1 truncate">{children}</span>;
+  const content = asChild ? (
+    children
+  ) : (
+    <span className="flex-1 truncate">{children}</span>
+  );
 
   return (
     <Comp className={cn(buttonStyles({ mode, size }), className)} {...props}>
       {prefixIcon && <span className="shrink-0">{prefixIcon}</span>}
 
-      <Slot.Slottable>{slottedChildren}</Slot.Slottable>
+      <Slot.Slottable>{content}</Slot.Slottable>
 
       {suffixIcon && <span className="shrink-0">{suffixIcon}</span>}
     </Comp>

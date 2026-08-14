@@ -2,7 +2,7 @@ import { ArrowRightIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/Button";
-import { SECTION_HREF, SECTION_ID } from "@/config/sections";
+import { SECTION_ID } from "@/config/content";
 
 export default function Hero() {
   return (
@@ -18,6 +18,7 @@ export default function Hero() {
           alt="MM"
           height={200}
           width={593}
+          loading="eager"
         />
       </div>
 
@@ -32,7 +33,7 @@ export default function Hero() {
         suffixIcon={<ChevronDownIcon />}
         className="w-fit"
       >
-        <Link href={SECTION_HREF.IDENTITY}>WHO WE ARE</Link>
+        <Link href={`/#${SECTION_ID.IDENTITY}`}>WHO WE ARE</Link>
       </Button>
 
       <Button
@@ -41,7 +42,7 @@ export default function Hero() {
         suffixIcon={<ArrowRightIcon />}
         className="w-fit justify-self-end"
       >
-        <Link href={SECTION_HREF.CONTACT}>Start now</Link>
+        <Link href={`/#${SECTION_ID.CONTACT}`}>Start now</Link>
       </Button>
     </section>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { SECTION_HREF } from "@/config/sections";
+import { SECTION_ID } from "@/config/content";
 import Appbar from "../Appbar";
 
 export default function Navbar() {
@@ -46,10 +46,10 @@ export default function Navbar() {
       <Appbar
         title="MMDEV_STUDIO"
         navItems={[
-          { href: SECTION_HREF.IDENTITY, name: "identity" },
-          { href: SECTION_HREF.PRODUCTS, name: "products" },
-          { href: SECTION_HREF.SHOWCASE, name: "showcase" },
-          { href: SECTION_HREF.CONTACT, name: "build now" },
+          { href: `/#${SECTION_ID.IDENTITY}`, name: "identity" },
+          { href: `/#${SECTION_ID.PRODUCTS}`, name: "products" },
+          { href: `/#${SECTION_ID.SHOWCASE}`, name: "showcase" },
+          { href: `/#${SECTION_ID.CONTACT}`, name: "build now" },
         ]}
         isNav
       />

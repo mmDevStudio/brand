@@ -4,14 +4,14 @@ import Card from "@/components/Card";
 import Input from "@/components/Input";
 import Section from "@/components/Section";
 import TextArea from "@/components/TextArea";
-import { SECTION_ID } from "@/config/sections";
+import { SECTION_ID } from "@/config/content";
 
 export default function Contact() {
   return (
     <Section
       title="04 / contact"
       contentClassName="grid grid-cols-2 gap-8"
-      sectionId={SECTION_ID.CONTACT}
+      id={SECTION_ID.CONTACT}
     >
       <div className="text-text-subtle leading-10 col-span-2">
         Select a package and tell us a bit about your goals. Whether you know
@@ -19,6 +19,7 @@ export default function Contact() {
         every request personally and will get back to you with a
         straightforward, no-nonsense plan.
       </div>
+
       <ul className="text-text-subtle leading-10">
         <li>
           <b className="font-b">Request:</b> You submit your project details
@@ -38,52 +39,54 @@ export default function Contact() {
         </li>
       </ul>
 
-      <Card>
-        <Card.Main className="flex flex-col gap-8">
-          <label
-            htmlFor="product-package"
-            className="uppercase text-text text-sm flex flex-col gap-2.5"
-          >
-            Product Package
-            {/* TODO: select instead of input */}
-            <Input
-              id="product-package"
-              placeholder="Select your package"
-              className="w-full"
-              suffixIcon={<ChevronDownIcon />}
-            />
-          </label>
+      <Card asChild>
+        <form>
+          <Card.Body className="flex flex-col gap-8">
+            <label
+              htmlFor="product-package"
+              className="uppercase text-text text-sm flex flex-col gap-2.5"
+            >
+              Product Package
+              {/* TODO: select instead of input */}
+              <Input
+                id="product-package"
+                placeholder="Select your package"
+                className="w-full"
+                suffixIcon={<ChevronDownIcon />}
+              />
+            </label>
+            <label
+              htmlFor="email"
+              className="uppercase text-text text-sm flex flex-col gap-2.5"
+            >
+              email
+              {/* TODO: select instead of input */}
+              <Input
+                type="email"
+                id="email"
+                placeholder="your@email.com"
+                className="w-full"
+              />
+            </label>
 
-          <label
-            htmlFor="email"
-            className="uppercase text-text text-sm flex flex-col gap-2.5"
-          >
-            email
-            {/* TODO: select instead of input */}
-            <Input
-              type="email"
-              id="email"
-              placeholder="your@email.com"
-              className="w-full"
-            />
-          </label>
+            <label
+              htmlFor="details"
+              className="uppercase text-text text-sm flex flex-col gap-2.5"
+            >
+              additional details
+              {/* TODO: select instead of input */}
+              <TextArea
+                id="details"
+                placeholder="Tell us more about your project..."
+                className="w-full min-h-25"
+              />
+            </label>
+          </Card.Body>
 
-          <label
-            htmlFor="details"
-            className="uppercase text-text text-sm flex flex-col gap-2.5"
-          >
-            additional details
-            {/* TODO: select instead of input */}
-            <TextArea
-              id="details"
-              placeholder="Tell us more about your project..."
-              className="w-full min-h-25"
-            />
-          </label>
-        </Card.Main>
-        <Card.Foot>
-          <Button>Send request</Button>
-        </Card.Foot>
+          <Card.Footer>
+            <Button className="size-full">Send request</Button>
+          </Card.Footer>
+        </form>
       </Card>
     </Section>
   );

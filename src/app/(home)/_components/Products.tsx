@@ -7,14 +7,14 @@ import Link from "next/link";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
-import { SECTION_HREF, SECTION_ID } from "@/config/sections";
+import { SECTION_ID } from "@/config/content";
 
 export default function Products() {
   return (
     <Section
       title="02 / our products"
       contentClassName="grid grid-cols-3 gap-8"
-      sectionId={SECTION_ID.PRODUCTS}
+      id={SECTION_ID.PRODUCTS}
     >
       <div className="text-text-subtle text-body font-body col-span-3 leading-10">
         We don't do hidden fees, aggressive upselling, or confusing retainers.
@@ -61,13 +61,21 @@ export default function Products() {
         You don’t know yet which package applies to you? Don’t worry, we happily
         advice you what fits best for your use case, even if it’s not covered in
         one of our displayed products.{" "}
-        <Link href={SECTION_HREF.CONTACT} className="text-primary underline">
+        <Link
+          href={`/#${SECTION_ID.CONTACT}`}
+          className="text-primary underline"
+        >
           Just write us!
         </Link>
       </div>
 
-      <Button mode="ghost" className="w-fit" suffixIcon={<ChevronDownIcon />}>
-        <Link href={SECTION_HREF.SHOWCASE}>What customers say</Link>
+      <Button
+        asChild
+        mode="ghost"
+        className="w-fit"
+        suffixIcon={<ChevronDownIcon />}
+      >
+        <Link href={`/#${SECTION_ID.SHOWCASE}`}>What customers say</Link>
       </Button>
     </Section>
   );
@@ -88,8 +96,7 @@ function PackageCard({
 }) {
   return (
     <Card className="min-h-115">
-      {/* Head */}
-      <Card.Head className="flex flex-col gap-1">
+      <Card.Header className="flex flex-col gap-1">
         <div className="flex justify-between items-center">
           <h4 className="text-text font-heading text-h4 font-bold">{title}</h4>
           {recommended && (
@@ -99,10 +106,9 @@ function PackageCard({
           )}
         </div>
         <span className="text-text-subtle text-sm uppercase">{subtitle}</span>
-      </Card.Head>
+      </Card.Header>
 
-      {/* Body */}
-      <Card.Main className="flex flex-col flex-1 justify-between">
+      <Card.Body className="flex flex-col flex-1 justify-between">
         <ul>
           {features.map((f) => (
             <li
@@ -121,17 +127,17 @@ function PackageCard({
             per unit
           </span>
         </div>
-      </Card.Main>
+      </Card.Body>
 
-      {/* Foot */}
-      <Card.Foot>
+      <Card.Footer>
         <Button
+          className="size-full"
           mode={recommended ? "filled" : "ghost"}
           suffixIcon={<ArrowRightIcon />}
         >
           select {title}
         </Button>
-      </Card.Foot>
+      </Card.Footer>
     </Card>
   );
 }
