@@ -68,12 +68,7 @@ export default function Products() {
           </Link>
         </div>
 
-        <Button
-          asChild
-          mode="ghost"
-          className="w-fit"
-          suffixIcon={<ChevronDownIcon />}
-        >
+        <Button asChild mode="ghost" suffixIcon={<ChevronDownIcon />}>
           <Link href={`/#${SECTION_ID.SHOWCASE}`}>What customers say</Link>
         </Button>
       </Section.Body>
