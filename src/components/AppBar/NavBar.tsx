@@ -1,37 +1,59 @@
+"use client";
+
+import React from "react";
 import { sections } from "@/lib/content";
 import AppBar from "./AppBar";
 
 export default function NavBar() {
+  const containerRef = React.useRef<HTMLElement>(null);
+  const [isStuck, setIsStuck] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [root] = entries;
+        setIsStuck(!root.isIntersecting);
+      },
+      {
+        rootMargin: "-1px 100% 100% 100%",
+        threshold: [1],
+      },
+    );
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="sticky isolate px-px -my-px top-0 z-10 border-b border-border">
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-bg [clip-path:inset(0)]"
+    <AppBar asChild>
+      <nav
+        ref={containerRef}
+        className={`sticky isolate -my-px top-0 z-10 transition-all ${isStuck ? "bg-bg/50 backdrop-blur-md" : "bg-transparent"}`}
       >
-        <span className="fixed inset-0 bg-bg bg-stripes" />
-      </span>
-      <span className="pointer-events-none absolute -bottom-px left-1/2 -translate-x-1/2 w-screen border-t border-dashed border-border" />
-      <span className="pointer-events-none absolute left-0 bottom-0 translate-y-1/2 h-[200vh] border-l border-dashed border-border" />
-      <span className="pointer-events-none absolute right-0 bottom-0 translate-y-1/2 h-[200vh] border-r border-dashed border-border" />
+        <span className="pointer-events-none absolute -bottom-px left-1/2 -translate-x-1/2 w-screen border-t border-dashed border-border" />
+        <span className="pointer-events-none absolute left-0 bottom-0 translate-y-1/2 h-[200vh] border-l border-dashed border-border" />
+        <span className="pointer-events-none absolute right-0 bottom-0 translate-y-1/2 h-[200vh] border-r border-dashed border-border" />
 
-      <AppBar asChild>
-        <nav>
-          <AppBar.Logo className="mr-auto" href="/#">
-            MMDEV_STUDIO
-          </AppBar.Logo>
+        <AppBar.Logo className="mr-auto" href="/#">
+          MMDEV_STUDIO
+        </AppBar.Logo>
 
-          <AppBar.Item href={`/#${sections.identity}`}>identity</AppBar.Item>
-          <AppBar.Item href={`/#${sections.products}`}>products</AppBar.Item>
-          <AppBar.Item href={`/#${sections.showcase}`}>showcase</AppBar.Item>
+        <AppBar.Item href={`/#${sections.identity}`}>identity</AppBar.Item>
+        <AppBar.Item href={`/#${sections.products}`}>products</AppBar.Item>
+        <AppBar.Item href={`/#${sections.showcase}`}>showcase</AppBar.Item>
 
-          <AppBar.Item
-            href={`/#${sections.contact}`}
-            className="font-bold text-primary"
-          >
-            build now
-          </AppBar.Item>
-        </nav>
-      </AppBar>
-    </div>
+        <AppBar.Item
+          href={`/#${sections.contact}`}
+          className="font-bold text-primary"
+        >
+          build now
+        </AppBar.Item>
+      </nav>
+    </AppBar>
   );
 }
