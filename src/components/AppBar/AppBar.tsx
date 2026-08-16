@@ -14,7 +14,7 @@ export default function AppBar({ asChild, className, ...props }: AppBarProps) {
   return (
     <Slot
       className={cn(
-        "px-8 py-3 flex gap-6 items-center font-heading  border-b border-border",
+        "px-8 py-3 flex gap-6 items-center font-heading",
         className,
       )}
       {...props}

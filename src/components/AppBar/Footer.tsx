@@ -4,7 +4,7 @@ import AppBar from "./AppBar";
 export default function Footer() {
   return (
     <AppBar asChild>
-      <footer>
+      <footer className="border-b-0">
         <AppBar.Logo href="/#">MADE_WITH_💜️/2026</AppBar.Logo>
         <AppBar.Item href={`/#${sections.contact}`}>
           contact@mmdev.studio
