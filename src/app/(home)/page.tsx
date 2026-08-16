@@ -6,7 +6,7 @@ import Showcase from "./_components/Showcase";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-24 py-24">
+    <div>
       <Hero />
       <Identity />
       <Products />

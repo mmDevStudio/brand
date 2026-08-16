@@ -11,72 +11,67 @@ import { SECTION_ID } from "@/config/content";
 
 export default function Products() {
   return (
-    <Section
-      title="02 / our products"
-      contentClassName="grid grid-cols-3 gap-8"
-      id={SECTION_ID.PRODUCTS}
-    >
-      <div className="text-text-subtle text-body font-body col-span-3 leading-10">
-        We don't do hidden fees, aggressive upselling, or confusing retainers.
-        We offer three distinct, highly optimized packages designed to give you
-        exactly what your business needs—and absolutely nothing you don't.
-      </div>
+    <Section id={SECTION_ID.PRODUCTS}>
+      <Section.Header>02 / our products</Section.Header>
 
-      <PackageCard
-        title="Postcard"
-        subtitle="The multi-page standard"
-        features={[
-          "Up to 5 sub-pages",
-          "Content Management",
-          "Analytics Dashboard",
-          "User Role Management",
-        ]}
-        price={20}
-      />
-      <PackageCard
-        title="Postcard"
-        subtitle="The multi-page standard"
-        features={[
-          "Up to 5 sub-pages",
-          "Content Management",
-          "Analytics Dashboard",
-          "User Role Management",
-        ]}
-        price={40}
-        recommended
-      />
-      <PackageCard
-        title="Parcel"
-        subtitle="The multi-page standard"
-        features={[
-          "Up to 5 sub-pages",
-          "Content Management",
-          "Analytics Dashboard",
-          "User Role Management",
-        ]}
-        price={80}
-      />
+      <Section.Body className="grid grid-cols-3 gap-8">
+        <div className="text-text-subtle text-body font-body col-span-3 leading-10">
+          We don't do hidden fees, aggressive upselling, or confusing retainers.
+          We offer three distinct, highly optimized packages designed to give
+          you exactly what your business needs—and absolutely nothing you don't.
+        </div>
 
-      <div className="col-span-3 leading-10 text-text-subtle">
-        You don’t know yet which package applies to you? Don’t worry, we happily
-        advice you what fits best for your use case, even if it’s not covered in
-        one of our displayed products.{" "}
-        <Link
-          href={`/#${SECTION_ID.CONTACT}`}
-          className="text-primary underline"
-        >
-          Just write us!
-        </Link>
-      </div>
+        <PackageCard
+          title="Postcard"
+          subtitle="The multi-page standard"
+          features={[
+            "Up to 5 sub-pages",
+            "Content Management",
+            "Analytics Dashboard",
+            "User Role Management",
+          ]}
+          price={20}
+        />
+        <PackageCard
+          title="Postcard"
+          subtitle="The multi-page standard"
+          features={[
+            "Up to 5 sub-pages",
+            "Content Management",
+            "Analytics Dashboard",
+            "User Role Management",
+          ]}
+          price={40}
+          recommended
+        />
+        <PackageCard
+          title="Parcel"
+          subtitle="The multi-page standard"
+          features={[
+            "Up to 5 sub-pages",
+            "Content Management",
+            "Analytics Dashboard",
+            "User Role Management",
+          ]}
+          price={80}
+        />
 
-      <Button
-        asChild
-        mode="ghost"
-        className="w-fit"
-        suffixIcon={<ChevronDownIcon />}
-      >
-        <Link href={`/#${SECTION_ID.SHOWCASE}`}>What customers say</Link>
-      </Button>
+        <div className="col-span-3 leading-10 text-text-subtle">
+          You don’t know yet which package applies to you? Don’t worry, we
+          happily advice you what fits best for your use case, even if it’s not
+          covered in one of our displayed products.{" "}
+          <Link
+            href={`/#${SECTION_ID.CONTACT}`}
+            className="text-primary underline"
+          >
+            Just write us!
+          </Link>
+        </div>
+
+        <Button asChild mode="ghost" suffixIcon={<ChevronDownIcon />}>
+          <Link href={`/#${SECTION_ID.SHOWCASE}`}>What customers say</Link>
+        </Button>
+      </Section.Body>
     </Section>
   );
 }

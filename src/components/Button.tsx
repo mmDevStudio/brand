@@ -4,7 +4,7 @@ import type React from "react";
 import cn from "@/utils/cn";
 
 const buttonStyles = cva(
-  "flex items-center text-action cursor-pointer transition select-none",
+  "flex items-center w-fit text-action cursor-pointer transition select-none",
   {
     variants: {
       mode: {
