@@ -42,6 +42,10 @@
   @apply font-heading text-lg uppercase font-bold leading-none;
 }
 
+@utility text-base {
+  @apply font-body text-text text-body font-normal leading-loose;
+}
+
 @utility bg-stripes {
   background-image: repeating-linear-gradient(
     -45deg,

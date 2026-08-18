@@ -4,7 +4,7 @@ import cn from "@/utils/cn";
 
 export const inputContainerStyles = cva(
   `flex items-center border-border border-1 px-3 py-2 gap-3 bg-bg
-  text-text text-body font-body w-min transition
+  text-base w-min transition
   focus-within:bg-bg-accent focus-within:outlined hover:bg-bg-accent`,
 );
 
