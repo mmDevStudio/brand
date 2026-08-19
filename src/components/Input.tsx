@@ -9,7 +9,7 @@ export const inputContainerStyles = cva(
 );
 
 export const inputStyles = cva(
-  "outline-0 flex-1 min-w-0 placeholder:text-border",
+  "outline-0 flex-1 min-w-0 placeholder:text-text-subtle",
 );
 
 type InputProps = React.ComponentProps<"input"> & {
