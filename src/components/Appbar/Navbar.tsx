@@ -11,33 +11,47 @@ export default function Navbar() {
     const el = ref.current;
     if (!el) return;
 
-    const bodyStyle = getComputedStyle(document.body);
-    const naturalLeft = -parseFloat(bodyStyle.paddingLeft) + 0.25;
+    let rafId: number;
 
     const sync = () => {
       const rect = el.getBoundingClientRect();
       const currentTop = window.scrollY + rect.top;
-
       const scroll = window.scrollY;
 
       const bgY = scroll >= currentTop ? -scroll : -currentTop;
+      const bgX = -rect.left;
 
-      el.style.backgroundPositionX = `${naturalLeft}px`;
-      el.style.backgroundPositionY = `${bgY}px`;
+      el.style.setProperty("--bg-x", `${bgX}px`);
+      el.style.setProperty("--bg-y", `${bgY}px`);
+    };
+
+    const handleUpdate = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(sync);
     };
 
     sync();
-    window.addEventListener("scroll", sync, { passive: true });
-    window.addEventListener("resize", sync, { passive: true });
+
+    window.addEventListener("scroll", handleUpdate, { passive: true });
+    window.addEventListener("resize", handleUpdate, { passive: true });
+
+    const observer = new ResizeObserver(handleUpdate);
+    observer.observe(document.body);
+
     return () => {
-      window.removeEventListener("scroll", sync);
-      window.removeEventListener("resize", sync);
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", handleUpdate);
+      window.removeEventListener("resize", handleUpdate);
+      observer.disconnect();
     };
   }, []);
 
   return (
     <div
       ref={ref}
+      style={{
+        backgroundPosition: "var(--bg-x, 0px) var(--bg-y, 0px)",
+      }}
       className="sticky px-px -my-px top-0 z-10 bg-bg bg-stripes border-b border-border"
     >
       <span className="pointer-events-none absolute -bottom-px left-1/2 -translate-x-1/2 w-screen border-t border-dashed border-border" />
