@@ -1,4 +1,8 @@
+"use client";
+
+import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+import { useState } from "react";
 import cn from "@/utils/cn";
 import Button from "./Button";
 
@@ -13,27 +17,76 @@ export default function Appbar({
   navItems,
   isNav = false,
 }: AppbarProps) {
+  const [isOpen, setIsOpen] = useState(false);
   const Tag = isNav ? "nav" : "footer";
   return (
-    <Tag className="px-6 py-3 flex gap-6 items-center font-heading">
-      <h1 className="flex-1 text-text font-bold text-2xl">
+    <Tag className="px-6 py-3 flex justify-between items-center">
+      {/* Title */}
+      <h1 className="text-text font-bold text-2xl font-heading">
         {isNav ? <Link href="/">{title}</Link> : title}
       </h1>
-      {navItems.map((l, i) => {
-        const highlight = i === navItems.length - 1 && isNav;
 
-        return (
-          <Button
-            asChild
-            mode="ghost"
-            size="sm"
-            className={cn(!highlight && "font-normal text-text-subtle px-0")}
-            key={l.name}
-          >
-            <Link href={l.href}>{l.name}</Link>
-          </Button>
-        );
-      })}
+      {/* Mobile Toggle Button */}
+      <Button
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+        aria-label="Toggle navigation menu"
+        className="text-text lg:hidden p-2"
+        mode="ghost"
+      >
+        {isOpen ? (
+          <Cross1Icon height={32} width={32} />
+        ) : (
+          <HamburgerMenuIcon height={32} width={32} />
+        )}
+      </Button>
+
+      {/* Mobile Dropdown Menu */}
+      {isOpen && (
+        <div className="absolute top-full left-0 w-full bg-bg bg-stripes border-border border flex flex-col p-4 gap-6 lg:hidden">
+          {navItems.map((l, i) => {
+            const highlight = i === navItems.length - 1 && isNav;
+
+            return (
+              <Button
+                asChild
+                mode="ghost"
+                size="sm"
+                className={cn(
+                  "justify-start w-full",
+                  !highlight && "font-normal text-text-subtle",
+                )}
+                key={l.name}
+              >
+                <Link href={l.href} onClick={() => setIsOpen(false)}>
+                  {l.name}
+                </Link>
+              </Button>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Desktop */}
+      <div className="hidden lg:flex gap-6">
+        {navItems.map((l, i) => {
+          const highlight = i === navItems.length - 1 && isNav;
+
+          return (
+            <Button
+              asChild
+              mode="ghost"
+              size="sm"
+              className={cn(!highlight && "font-normal text-text-subtle px-0")}
+              key={l.name}
+            >
+              <Link onClick={() => setIsOpen(false)} href={l.href}>
+                {l.name}
+              </Link>
+            </Button>
+          );
+        })}
+      </div>
     </Tag>
   );
 }
