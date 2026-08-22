@@ -30,7 +30,12 @@ export default function Identity() {
           rooted in low-level programming and IoT (Internet of Things).
         </Profile>
 
-        <Button asChild mode="ghost" suffixIcon={<ChevronDownIcon />}>
+        <Button
+          asChild
+          mode="ghost"
+          className="hidden lg:flex"
+          suffixIcon={<ChevronDownIcon />}
+        >
           <Link href={`/#${SECTION_ID.PRODUCTS}`}>What we offer</Link>
         </Button>
       </Section.Body>
