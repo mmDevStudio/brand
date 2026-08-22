@@ -16,7 +16,7 @@ const buttonStyles = cva(
         sm: "px-3 py-2 gap-2 text-body",
       },
       active: {
-        true: "hover:bg-primary/80",
+        true: "highlight active-highlight",
         false: "",
       },
     },
