@@ -31,7 +31,12 @@ export default function Hero() {
           digital ledgers that prioritize clarity over clutter.
         </p>
 
-        <Button asChild mode="ghost" suffixIcon={<ChevronDownIcon />}>
+        <Button
+          asChild
+          mode="ghost"
+          className="hidden lg:flex"
+          suffixIcon={<ChevronDownIcon />}
+        >
           <Link href={`/#${SECTION_ID.IDENTITY}`}>WHO WE ARE</Link>
         </Button>
 
@@ -39,7 +44,7 @@ export default function Hero() {
           asChild
           mode="filled"
           suffixIcon={<ArrowRightIcon />}
-          className="justify-self-end"
+          className="lg:justify-self-end"
         >
           <Link href={`/#${SECTION_ID.CONTACT}`}>Start now</Link>
         </Button>

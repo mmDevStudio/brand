@@ -8,7 +8,7 @@ export default function Profile({
   children: string;
 }) {
   return (
-    <article className="flex flex-col">
+    <article className="flex flex-col col-span-2 lg:col-span-1">
       <span className="text-xl text-text font-heading font-bold">{name}</span>
       <span className="text-text-subtle font-heading text-body font-bold mb-3 uppercase">
         {title}
