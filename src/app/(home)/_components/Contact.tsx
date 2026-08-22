@@ -19,7 +19,7 @@ export default function Contact() {
           straightforward, no-nonsense plan.
         </div>
 
-        <ul className="text-text-subtle leading-10">
+        <ul className="text-text-subtle leading-10 hidden lg:block ">
           <li>
             <b className="font-b">Request:</b> You submit your project details
             through the form.
@@ -38,7 +38,7 @@ export default function Contact() {
           </li>
         </ul>
 
-        <Card asChild>
+        <Card className="col-span-2 lg:col-span-1" asChild>
           <form>
             <Card.Body className="flex flex-col gap-8">
               <label
