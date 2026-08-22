@@ -15,6 +15,10 @@ const buttonStyles = cva(
         md: "px-6 py-3 gap-3 text-lg",
         sm: "px-3 py-2 gap-2 text-body",
       },
+      active: {
+        true: "hover:bg-primary/80",
+        false: "",
+      },
     },
   },
 );
@@ -25,6 +29,7 @@ type ButtonProps = React.ComponentProps<"button"> & {
   mode?: "filled" | "ghost";
   asChild?: boolean;
   size?: "md" | "sm";
+  active?: true | false;
 };
 
 export default function Button({
@@ -35,6 +40,7 @@ export default function Button({
   asChild,
   children,
   size = "md",
+  active = false,
   ...props
 }: ButtonProps) {
   const Comp = asChild ? Slot.Root : "button";
@@ -45,7 +51,10 @@ export default function Button({
   );
 
   return (
-    <Comp className={cn(buttonStyles({ mode, size }), className)} {...props}>
+    <Comp
+      className={cn(buttonStyles({ mode, size, active }), className)}
+      {...props}
+    >
       {prefixIcon && <span className="shrink-0">{prefixIcon}</span>}
 
       <Slot.Slottable>{content}</Slot.Slottable>
