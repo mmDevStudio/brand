@@ -32,7 +32,7 @@ export default function Section({
   return (
     <section
       className={cn(
-        "flex flex-col gap-8 scroll-mt-20 my-24 overflow-hidden",
+        "flex flex-col gap-8 scroll-mt-20 my-36 lg:my-24 overflow-hidden",
         className,
       )}
       {...props}
