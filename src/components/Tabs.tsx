@@ -1,5 +1,5 @@
 "use client";
-import { PlusIcon } from "@radix-ui/react-icons";
+import { Cross1Icon, ExternalLinkIcon, PlusIcon } from "@radix-ui/react-icons";
 import {
   Children,
   type ComponentProps,
@@ -27,6 +27,7 @@ type TabsProps = { children: ReactNode; className?: string };
 export default function Tabs({ children, className }: TabsProps) {
   const [active, setActive] = useState(0);
   const [triangleY, setTriangleY] = useState(0);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const tabs = Children.toArray(children) as React.ReactElement<TabProps>[];
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -42,7 +43,7 @@ export default function Tabs({ children, className }: TabsProps) {
   }, [active]);
 
   return (
-    <div className={cn("grid grid-cols-2 gap-8", className)}>
+    <div className={cn("grid lg:grid-cols-2 gap-8", className)}>
       <div>
         {tabs.map((tab, i) => {
           const k = isValidElement(tab) ? tab.key : i;
@@ -54,13 +55,18 @@ export default function Tabs({ children, className }: TabsProps) {
                   buttonRefs.current[i] = el;
                 }}
                 type="button"
-                onClick={() => setActive(i)}
+                onClick={() => {
+                  setActive(i);
+                  if (window.innerWidth < 1024) {
+                    setIsMobileOpen(true);
+                  }
+                }}
                 className="w-full flex justify-between text-left p-3 cursor-pointer hover:bg-primary/20 transition"
               >
                 <div className="flex flex-col">
                   <span
                     className={cn(
-                      "text-h4 text-text font-bold uppercase font-heading w-fit highlight",
+                      "text-h4 text-text font-bold uppercase font-heading w-fit lg:highlight",
                       active === i && "active-highlight",
                     )}
                   >
@@ -70,22 +76,32 @@ export default function Tabs({ children, className }: TabsProps) {
                     {tab.props.subtitle}
                   </span>
                 </div>
-                {active !== i && (
-                  <PlusIcon
+
+                {/* Desktop dynamic icon */}
+                <div className="hidden lg:block self-center">
+                  {active !== i && (
+                    <PlusIcon height={24} width={24} className="text-text" />
+                  )}
+                </div>
+
+                {/* Mobile static icon */}
+                <div className="block self-center lg:hidden">
+                  <ExternalLinkIcon
                     height={24}
                     width={24}
-                    className="text-text self-center"
+                    className="text-text"
                   />
-                )}
+                </div>
               </button>
             </Fragment>
           );
         })}
       </div>
 
+      {/* Desktop Side Panel */}
       <div
         ref={panelRef}
-        className="relative min-h-0 bg-stripes bg-bg text-text -ml-3 pl-3"
+        className="hidden lg:block relative min-h-0 bg-stripes bg-bg text-text -ml-3 pl-3"
         style={{
           clipPath:
             triangleY === null
@@ -104,6 +120,37 @@ export default function Tabs({ children, className }: TabsProps) {
       >
         {tabs[active]}
       </div>
+
+      {/* Mobile Modal Dialog */}
+      {isMobileOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm lg:hidden">
+          <div className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto bg-bg border border-border bg-stripes p-6 text-text shadow-xl rounded-lg">
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <h3 className="text-xl font-bold font-heading uppercase">
+                  {tabs[active]?.props.title}
+                </h3>
+                <p className="text-sm text-text-subtle font-body uppercase">
+                  {tabs[active]?.props.subtitle}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsMobileOpen(false)}
+                className="p-1 text-text hover:bg-primary/20 transition rounded"
+                aria-label="Close dialog"
+              >
+                <Cross1Icon height={24} width={24} />
+              </button>
+            </div>
+
+            <Divider />
+
+            <div className="mt-4">{tabs[active]}</div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

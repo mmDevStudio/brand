@@ -50,7 +50,12 @@ export default function Showcase() {
           </Tabs.Tab>
         </Tabs>
 
-        <Button asChild mode="ghost" suffixIcon={<ChevronDownIcon />}>
+        <Button
+          asChild
+          mode="ghost"
+          className="hidden lg:flex"
+          suffixIcon={<ChevronDownIcon />}
+        >
           <Link href={`/#${SECTION_ID.CONTACT}`}>Book your website</Link>
         </Button>
       </Section.Body>
