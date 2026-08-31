@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  CubeIcon,
   EnvelopeOpenIcon,
   PersonIcon,
   QuestionMarkCircledIcon,
@@ -8,6 +9,7 @@ import {
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Input from "@/components/Input";
+import Select from "@/components/Select";
 import Tabs from "@/components/Tabs";
 import TextArea from "@/components/TextArea";
 import { ThemeModeSwitcher } from "@/components/ThemeSwitcher";
@@ -141,6 +143,32 @@ export default function SandboxPage() {
                 <Button size="sm">Card action</Button>
               </Card.Footer>
             </Card>
+          </ShowcaseItem>
+        </dl>
+      </section>
+
+      <section>
+        <h1 className="text-h1 font-heading font-bold text-text">Select</h1>
+
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <ShowcaseItem label="base">
+            <Select placeholder="Select a package" className="w-full">
+              <Select.Option value="sm">Package #1</Select.Option>
+              <Select.Option value="md">Package #2</Select.Option>
+              <Select.Option value="lg">Package #3</Select.Option>
+            </Select>
+          </ShowcaseItem>
+
+          <ShowcaseItem label="w/ prefix icon">
+            <Select
+              prefixIcon={<CubeIcon />}
+              placeholder="Select a package"
+              className="w-full"
+            >
+              <Select.Option value="sm">Package #1</Select.Option>
+              <Select.Option value="md">Package #2</Select.Option>
+              <Select.Option value="lg">Package #3</Select.Option>
+            </Select>
           </ShowcaseItem>
         </dl>
       </section>

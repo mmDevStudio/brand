@@ -4,12 +4,12 @@ import cn from "@/utils/cn";
 
 export const inputContainerStyles = cva(
   `flex items-center border-border border-1 px-3 py-2 gap-3 bg-bg
-  text-text text-body font-body w-min transition
+  text-base w-min transition
   focus-within:bg-bg-accent focus-within:outlined hover:bg-bg-accent`,
 );
 
 export const inputStyles = cva(
-  "outline-0 flex-1 min-w-0 placeholder:text-border",
+  "outline-0 flex-1 min-w-0 placeholder:text-text-subtle",
 );
 
 type InputProps = React.ComponentProps<"input"> & {

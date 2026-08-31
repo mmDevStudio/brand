@@ -17,7 +17,7 @@ export default function Card({
   return (
     <Comp
       className={cn(
-        "p-3 flex flex-col border border-border-subtle gap-2 bg-bg bg-stripes",
+        "p-3 flex flex-col border border-border gap-2 bg-bg bg-stripes",
         className,
       )}
       {...props}

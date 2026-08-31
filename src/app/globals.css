@@ -42,6 +42,10 @@
   @apply font-heading text-lg uppercase font-bold leading-none;
 }
 
+@utility text-base {
+  @apply font-body text-text text-body font-normal leading-loose;
+}
+
 @utility bg-stripes {
   background-image: repeating-linear-gradient(
     -45deg,
@@ -102,4 +106,13 @@
   &.hover-highlight:hover::before {
     transform: scaleX(1);
   }
+}
+
+html body[data-scroll-locked] {
+  --removed-body-scroll-bar-size: 0px;
+  overflow-y: auto !important;
+  margin-right: 0 !important;
+  padding-top: revert-layer;
+  padding-right: revert-layer;
+  padding-left: revert-layer;
 }
