@@ -3,6 +3,7 @@ import Card from "@/components/Card";
 import Input from "@/components/Input";
 import Select from "@/components/Select";
 import TextArea from "@/components/TextArea";
+import { PACKAGES } from "@/config/content";
 
 export default function ContactCard() {
   return (
@@ -15,9 +16,11 @@ export default function ContactCard() {
           >
             Product Package
             <Select placeholder="Select a package" className="w-full">
-              <Select.Option value="sm">Package #1</Select.Option>
-              <Select.Option value="md">Package #2</Select.Option>
-              <Select.Option value="lg">Package #3</Select.Option>
+              {PACKAGES.map((pkg) => (
+                <Select.Option key={pkg.id} value={pkg.id}>
+                  {pkg.title}
+                </Select.Option>
+              ))}
             </Select>
           </label>
 
