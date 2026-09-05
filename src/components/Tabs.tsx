@@ -71,7 +71,8 @@ export default function Tabs({ children, className }: TabsProps) {
                   <span
                     className={cn(
                       "text-h4 text-text font-bold uppercase font-heading w-fit highlight",
-                      active === i && "active-highlight",
+                      active === i && "lg:active-highlight",
+                      active === i && isMobileOpen && "max-lg:active-highlight",
                     )}
                   >
                     {tab.props.title}
