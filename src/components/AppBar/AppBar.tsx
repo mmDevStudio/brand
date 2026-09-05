@@ -6,7 +6,7 @@ import cn from "@/lib/cn";
 const itemClassName =
   "flex items-center text-action cursor-pointer transition select-none bg-transparent text-primary highlight hover-highlight px-0 py-2 gap-2 text-body font-normal text-text-subtle";
 
-type AppBarProps = ComponentProps<"nav"> & {
+type AppBarProps = ComponentProps<React.HTMLElementType> & {
   asChild: true;
 };
 
@@ -14,7 +14,7 @@ export default function AppBar({ asChild, className, ...props }: AppBarProps) {
   return (
     <Slot
       className={cn(
-        "px-8 py-3 flex gap-6 items-center font-heading  border-b border-border",
+        "px-8 py-3 flex gap-6 items-center font-heading",
         className,
       )}
       {...props}
