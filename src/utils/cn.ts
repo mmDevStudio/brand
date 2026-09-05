@@ -8,7 +8,17 @@ const twMerge = extendTailwindMerge<string, string>({
       font: ["body", "heading"],
     },
     classGroups: {
-      "text-action": ["text-action"],
+      "text-styles": [{ text: ["action", "base"] }],
+    },
+    conflictingClassGroups: {
+      "text-styles": [
+        "font-family",
+        "font-size",
+        "font-weight",
+        "leading",
+        "text-transform",
+        "text-color",
+      ],
     },
   },
 });
