@@ -21,12 +21,38 @@ export default function Carousel({
   ...props
 }: CarouselProps) {
   const [currentTab, setCurrentTab] = useState(startTab);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const baseId = useId();
 
   if (!tabs.length) return null;
 
   const activeTabId = `${baseId}-tab-${currentTab}`;
   const activePanelId = `${baseId}-panel-${currentTab}`;
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      setCurrentTab((prev) => Math.min(prev + 1, tabs.length - 1));
+    } else if (isRightSwipe) {
+      setCurrentTab((prev) => Math.max(prev - 1, 0));
+    }
+  };
 
   return (
     <div className={cn("flex flex-col gap-4", className)} {...props}>
@@ -68,6 +94,9 @@ export default function Carousel({
         role="tabpanel"
         className="w-full"
         aria-labelledby={activeTabId}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
       >
         {tabs[currentTab]?.panel}
       </div>
