@@ -32,8 +32,15 @@ export default function Carousel({
     <div className={cn("flex flex-col gap-4", className)} {...props}>
       <div
         role="tablist"
-        className="flex w-full overflow-x-auto justify-between bg-stripes p-1"
+        className="relative isolate flex w-full overflow-x-auto justify-between bg-stripes p-1"
       >
+        <div
+          className="absolute top-1 bottom-1 bg-white border border-border-subtle transition-transform duration-300 ease-out -z-10"
+          style={{
+            width: `calc((100% - 0.5rem) / ${tabs.length})`,
+            transform: `translateX(calc(${currentTab} * 100%))`,
+          }}
+        />
         {tabs.map(({ id, title }, tabNum) => {
           const isSelected = tabNum === currentTab;
           const tabId = `${baseId}-tab-${id ?? tabNum}`;
@@ -42,10 +49,7 @@ export default function Carousel({
           return (
             <button
               type="button"
-              className={cn(
-                "w-full py-1",
-                isSelected ? "bg-white border-border-subtle border" : "",
-              )}
+              className="w-full py-1"
               key={id ?? `${title}-${tabNum}`}
               id={tabId}
               role="tab"
