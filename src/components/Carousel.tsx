@@ -2,7 +2,6 @@
 
 import { type ReactNode, useId, useState } from "react";
 import cn from "@/utils/cn";
-import Button from "./Button";
 
 export type TabItem = {
   id?: string;
@@ -33,7 +32,7 @@ export default function Carousel({
     <div className={cn("flex flex-col gap-4", className)} {...props}>
       <div
         role="tablist"
-        className="flex gap-2 w-full overflow-x-auto md:justify-between"
+        className="flex w-full overflow-x-auto justify-between bg-stripes p-1"
       >
         {tabs.map(({ id, title }, tabNum) => {
           const isSelected = tabNum === currentTab;
@@ -41,18 +40,21 @@ export default function Carousel({
           const panelId = `${baseId}-panel-${id ?? tabNum}`;
 
           return (
-            <Button
+            <button
+              type="button"
+              className={cn(
+                "w-full py-1",
+                isSelected ? "bg-white border-border-subtle border" : "",
+              )}
               key={id ?? `${title}-${tabNum}`}
               id={tabId}
               role="tab"
               aria-selected={isSelected}
               aria-controls={panelId}
-              mode="ghost"
-              active={isSelected}
               onClick={() => setCurrentTab(tabNum)}
             >
               {title}
-            </Button>
+            </button>
           );
         })}
       </div>

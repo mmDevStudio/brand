@@ -47,11 +47,12 @@ export default function PricingSection() {
           title: pkg.title,
           panel: <PackageCard {...pkg} className="max-w-100 mx-auto" />,
         }))}
+        startTab={1}
         className="lg:hidden w-full"
       />
 
       {/* Desktop Layout (>= lg) */}
-      <div className="hidden lg:flex gap-6 justify-center w-full">
+      <div className="hidden lg:flex gap-6 justify-center w-full px-10">
         {packages.map((pkg, idx) => (
           <PackageCard
             key={`${pkg.title}-${idx}`}
