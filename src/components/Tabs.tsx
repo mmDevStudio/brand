@@ -1,5 +1,9 @@
 "use client";
-import { Cross1Icon, ExternalLinkIcon, PlusIcon } from "@radix-ui/react-icons";
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  PlusIcon,
+} from "@radix-ui/react-icons";
 import {
   Children,
   type ComponentProps,
@@ -27,7 +31,7 @@ type TabsProps = { children: ReactNode; className?: string };
 export default function Tabs({ children, className }: TabsProps) {
   const [active, setActive] = useState(0);
   const [triangleY, setTriangleY] = useState(0);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(true);
   const tabs = Children.toArray(children) as React.ReactElement<TabProps>[];
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -56,17 +60,17 @@ export default function Tabs({ children, className }: TabsProps) {
                 }}
                 type="button"
                 onClick={() => {
-                  setActive(i);
                   if (window.innerWidth < 1024) {
-                    setIsMobileOpen(true);
+                    setIsMobileOpen(!isMobileOpen || active !== i);
                   }
+                  setActive(i);
                 }}
                 className="w-full flex justify-between text-left p-3 cursor-pointer hover:bg-primary/20 transition"
               >
                 <div className="flex flex-col">
                   <span
                     className={cn(
-                      "text-h4 text-text font-bold uppercase font-heading w-fit lg:highlight",
+                      "text-h4 text-text font-bold uppercase font-heading w-fit highlight",
                       active === i && "active-highlight",
                     )}
                   >
@@ -84,21 +88,36 @@ export default function Tabs({ children, className }: TabsProps) {
                   )}
                 </div>
 
-                {/* Mobile static icon */}
-                <div className="block self-center lg:hidden">
-                  <ExternalLinkIcon
-                    height={24}
-                    width={24}
-                    className="text-text"
-                  />
+                {/* Mobile dynamic icon */}
+                <div className="lg:hidden self-center">
+                  {active === i && isMobileOpen ? (
+                    <ChevronUpIcon
+                      height={24}
+                      width={24}
+                      className="text-text"
+                    />
+                  ) : (
+                    <ChevronDownIcon
+                      height={24}
+                      width={24}
+                      className="text-text"
+                    />
+                  )}
                 </div>
               </button>
+              <div
+                className={cn(
+                  "hidden",
+                  isMobileOpen && i === active && "flex min-h-20",
+                )}
+              >
+                {tab}
+              </div>
             </Fragment>
           );
         })}
       </div>
 
-      {/* Desktop Side Panel */}
       <div
         ref={panelRef}
         className="hidden lg:block relative min-h-0 bg-stripes bg-bg text-text -ml-3 pl-3"
@@ -120,37 +139,6 @@ export default function Tabs({ children, className }: TabsProps) {
       >
         {tabs[active]}
       </div>
-
-      {/* Mobile Modal Dialog */}
-      {isMobileOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm lg:hidden">
-          <div className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto bg-bg border border-border bg-stripes p-6 text-text shadow-xl rounded-lg">
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <h3 className="text-xl font-bold font-heading uppercase">
-                  {tabs[active]?.props.title}
-                </h3>
-                <p className="text-sm text-text-subtle font-body uppercase">
-                  {tabs[active]?.props.subtitle}
-                </p>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setIsMobileOpen(false)}
-                className="p-1 text-text hover:bg-primary/20 transition rounded"
-                aria-label="Close dialog"
-              >
-                <Cross1Icon height={24} width={24} />
-              </button>
-            </div>
-
-            <Divider />
-
-            <div className="mt-4">{tabs[active]}</div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
