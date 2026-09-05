@@ -1,7 +1,7 @@
 import * as Slot from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 import type React from "react";
-import cn from "@/utils/cn";
+import cn from "@/lib/cn";
 
 const buttonStyles = cva(
   "flex items-center w-fit text-action cursor-pointer transition select-none",

@@ -11,7 +11,7 @@ import {
   Value,
   Viewport,
 } from "@radix-ui/react-select";
-import cn from "@/utils/cn";
+import cn from "@/lib/cn";
 import Button from "./Button";
 import { inputContainerStyles } from "./Input";
 
