@@ -60,9 +60,7 @@ export default function Tabs({ children, className }: TabsProps) {
                 }}
                 type="button"
                 onClick={() => {
-                  if (window.innerWidth < 1024) {
-                    setIsMobileOpen(!isMobileOpen || active !== i);
-                  }
+                  setIsMobileOpen(!isMobileOpen || active !== i);
                   setActive(i);
                 }}
                 className="w-full flex justify-between text-left p-3 cursor-pointer hover:bg-primary/20 transition"
@@ -72,7 +70,7 @@ export default function Tabs({ children, className }: TabsProps) {
                     className={cn(
                       "text-h4 text-text font-bold uppercase font-heading w-fit highlight",
                       active === i && "lg:active-highlight",
-                      active === i && isMobileOpen && "max-lg:active-highlight",
+                      active === i && isMobileOpen && "active-highlight",
                     )}
                   >
                     {tab.props.title}
@@ -109,7 +107,7 @@ export default function Tabs({ children, className }: TabsProps) {
               <div
                 className={cn(
                   "hidden",
-                  isMobileOpen && i === active && "flex min-h-20",
+                  isMobileOpen && i === active && "max-lg:flex min-h-20",
                 )}
               >
                 {tab}
