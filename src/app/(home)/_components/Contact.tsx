@@ -1,6 +1,7 @@
 import Section from "@/components/Section";
 import TextArea from "@/components/TextArea";
 import { sections } from "@/lib/content";
+import ContactCard from "./ContactCard";
 
 export default function Contact() {
   return (
